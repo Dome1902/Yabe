@@ -1,0 +1,23 @@
+.startborder {
+  /* border: 2px solid red; */
+  border-width: 2px;
+  border-style: solid;
+  border-color: red;
+  padding: 1%;
+}
+
+.registerButton {
+  height: 50px;
+  width: 100px;
+}
+
+.loginButton {
+  height: 50px;
+  width: 100px;
+}
+.buttons {
+    float:right; 
+}
+.search {
+    margin-left:45%;  
+}
