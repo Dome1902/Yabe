@@ -22,8 +22,7 @@
     margin-left:45%;  
 }
 
-.listings{
-  
+.listings{  
     display: grid;  
     grid-gap: 5px;  
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -31,27 +30,6 @@
 }
 
 .listings1 {
-  border-width: 1px;
-  border-style: solid;
-  border-color: rgba(0, 0, 0, 0.5);
-  padding: 1px;
-}
-
-.listings2 {
-  border-width: 1px;
-  border-style: solid;
-  border-color: rgba(0, 0, 0, 0.5);
-  padding: 1px;
-}
-
-.listings3 {
-  border-width: 1px;
-  border-style: solid;
-  border-color: rgba(0, 0, 0, 0.5);
-  padding: 1px;
-}
-
-.listings4 {
   border-width: 1px;
   border-style: solid;
   border-color: rgba(0, 0, 0, 0.5);
