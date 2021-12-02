@@ -13,23 +13,40 @@ export class StartsiteComponent implements OnInit {
     this.product = [
       {
         title: 'hello',
-        description: 'hello',
+        description: 'hellohhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh',
         picture:
           'https://cdn.pixabay.com/photo/2017/08/02/01/01/living-room-2569325_1280.jpg',
       },
       {
         title: 'tag',
-        description: 'tag',
+        description: 'taghhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh',
         picture:
           'https://cdn.pixabay.com/photo/2017/08/02/01/01/living-room-2569325_1280.jpg',
       },
       {
         title: 'Moderne Couch',
-        description: 'Super',
+        description: 'Superhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh',
         picture:
           'https://cdn.pixabay.com/photo/2017/08/02/01/01/living-room-2569325_1280.jpg',
       },
-
+      {
+        title: 'Moderne Couch',
+        description: 'Superhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh',
+        picture:
+          'https://cdn.pixabay.com/photo/2017/08/02/01/01/living-room-2569325_1280.jpg',
+      },
+      {
+        title: 'Moderne Couch',
+        description: 'Superhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh ',
+        picture:
+          'https://cdn.pixabay.com/photo/2017/08/02/01/01/living-room-2569325_1280.jpg',
+      },
+      {
+        title: 'Moderne Couch',
+        description: 'Superhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh',
+        picture:
+          'https://cdn.pixabay.com/photo/2017/08/02/01/01/living-room-2569325_1280.jpg',
+      },
     ];
   }
 

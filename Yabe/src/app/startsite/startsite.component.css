@@ -1,5 +1,6 @@
 .startborder {
   /* border: 2px solid red; */
+  display: flex;
   border-width: 2px;
   border-style: solid;
   border-color: red;
@@ -16,7 +17,7 @@
   width: 100px;
 }
 .buttons {
-    float:right; 
+    float:right;
 }
 .search {
     margin-left:45%;  
@@ -24,16 +25,17 @@
 
 .listings{  
     display: grid;  
-    grid-gap: 5px;  
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 6% 0.6%; 
+    grid-template-columns: repeat(auto-fit, minmax(250px, 300px));
     grid-template-rows: repeat(5, 200px);
 }
 
 .listings1 {
-  border-width: 1px;
+  border-width: 5px;
   border-style: solid;
-  border-color: rgba(0, 0, 0, 0.5);
-  padding: 1px;
+  border-color: rgba(0, 0, 0, 1);
+  padding: 5px;
+  word-wrap: break-word;
 }
 
 img {
