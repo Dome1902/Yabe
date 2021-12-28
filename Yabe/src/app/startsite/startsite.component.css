@@ -5,32 +5,34 @@
   border-style: solid;
   border-color: red;
   padding: 1%;
+  align-items: center;
 }
 
 .registerButton {
-  display:flex;
+  display: flex;
   height: 50px;
   width: 100px;
   float: right;
 }
 
 .loginButton {
-  display:flex;
+  display: flex;
   height: 50px;
   width: 100px;
 }
 .buttons {
-    float:right;
+  margin-left: 37%;
 }
 .search {
-    margin-left:45%;  
+  display: flex;
+  margin-left: 38%;
 }
 
-.listings{  
-    display: grid;  
-    gap: 6% 0.6%; 
-    grid-template-columns: repeat(auto-fit, minmax(250px, 300px));
-    grid-template-rows: repeat(5, 200px);
+.listings {
+  display: grid;
+  gap: 6% 0.6%;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 300px));
+  grid-template-rows: repeat(5, 200px);
 }
 
 .listings1 {
@@ -52,10 +54,10 @@ img {
 }
 
 .counter {
-display: flex;
-margin-left: 75%;
+  display: flex;
+  margin-left: 75%;
 }
 
 .info {
-  display:flex;
+  display: flex;
 }

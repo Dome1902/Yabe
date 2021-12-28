@@ -3,5 +3,5 @@ export interface product {
   picture: string;
   title: string;
   counter: number;
-
+  price: number;
 }
