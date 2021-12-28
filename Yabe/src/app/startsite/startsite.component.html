@@ -13,7 +13,10 @@
       <div class="listings1">
         {{ products.title }}
         <img src="{{ products.picture }}" />
-        {{ products.description }}
+        <div class="info">
+          {{ products.price }}
+          <div class="counter">{{ products.counter }}</div>
+        </div>
       </div>
     </div>
   </div>

@@ -8,11 +8,14 @@
 }
 
 .registerButton {
+  display:flex;
   height: 50px;
   width: 100px;
+  float: right;
 }
 
 .loginButton {
+  display:flex;
   height: 50px;
   width: 100px;
 }
@@ -46,4 +49,13 @@ img {
 .listing1img {
   height: 1fr;
   width: 1fr;
+}
+
+.counter {
+display: flex;
+margin-left: 75%;
+}
+
+.info {
+  display:flex;
 }

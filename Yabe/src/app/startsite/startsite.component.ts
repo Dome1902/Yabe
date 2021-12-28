@@ -13,37 +13,43 @@ export class StartsiteComponent implements OnInit {
     this.product = [
       {
         title: 'hello',
-        description: 'hellohhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh',
+        price: '6,70€',
+        counter: '5.00',
         picture:
           'https://cdn.pixabay.com/photo/2017/08/02/01/01/living-room-2569325_1280.jpg',
       },
       {
         title: 'tag',
-        description: 'taghhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh',
+        price: '5,50€',
+        counter: '15.00',
         picture:
           'https://cdn.pixabay.com/photo/2017/08/02/01/01/living-room-2569325_1280.jpg',
       },
       {
         title: 'Moderne Couch',
-        description: 'Superhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh',
+        price: '5.50€',
+        counter: '5.00',
         picture:
           'https://cdn.pixabay.com/photo/2017/08/02/01/01/living-room-2569325_1280.jpg',
       },
       {
         title: 'Moderne Couch',
-        description: 'Superhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh',
+        price: '5.50€',
+        counter: '5.00',
         picture:
           'https://cdn.pixabay.com/photo/2017/08/02/01/01/living-room-2569325_1280.jpg',
       },
       {
         title: 'Moderne Couch',
-        description: 'Superhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh ',
+        price:'5.50€ ',
+        counter: '5.00',
         picture:
           'https://cdn.pixabay.com/photo/2017/08/02/01/01/living-room-2569325_1280.jpg',
       },
       {
         title: 'Moderne Couch',
-        description: 'Superhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh',
+        price: '5.50€',
+        counter: '5.00',
         picture:
           'https://cdn.pixabay.com/photo/2017/08/02/01/01/living-room-2569325_1280.jpg',
       },
