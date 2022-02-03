@@ -9,7 +9,30 @@
 </div>
 
 <body>
-  <div class="listings">
+  <div class="account">
+  <div *ngFor="let customers of customer">
+    <img src="{{ customers.customerPicture }}"/>
+    <div>
+      Name: {{ customers.surname}}
+    <div>
+      Nachname: {{ customers.name}}    
+    <div>
+       Mitglied seit: {{ customers.membership}}
+       <div>
+         Angebote anzeigen &NonBreakingSpace;
+         Angebote erstellen
+         <div>
+          Angebote ändern &NonBreakingSpace;
+          Angebote löschen
+         </div>
+       </div>
+    </div>  
+  </div>
+</div>
+  </div>
+</div>
+  <div class="bsp">
+    <div class="listings">
     <div *ngFor="let products of product">
       <div class="listings1">
         {{ products.title }}
@@ -21,4 +44,8 @@
       </div>
     </div>
   </div>
+  </div>
+
 </body>
+
+

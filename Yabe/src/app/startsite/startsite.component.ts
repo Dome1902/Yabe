@@ -9,6 +9,7 @@ import { Observable } from 'rxjs';
 })
 export class StartsiteComponent implements OnInit {
   product: any[];
+  customer: any[];
   constructor() {
     this.product = [
       {
@@ -54,7 +55,17 @@ export class StartsiteComponent implements OnInit {
           'https://cdn.pixabay.com/photo/2017/08/02/01/01/living-room-2569325_1280.jpg',
       },
     ];
+
+    this.customer = [
+      {
+      customerPicture: 'https://i.pinimg.com/originals/8e/d6/6e/8ed66e4e1e535921c241952fccb5c4f8.jpg',
+      surname:'Monkey',
+      name:'In a suit',
+      membership:'19.02.2000',
+      }
+    ]
   }
+
 
   ngOnInit(): void {}
 }
