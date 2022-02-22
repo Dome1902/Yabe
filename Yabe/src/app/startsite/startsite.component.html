@@ -2,13 +2,12 @@
   <p style="font-size: 30px">Yabe</p>
   <input class="search" type="search" placeholder="Suche..." />
   <div class="buttons">
-    <button class="registerButton">Registrieren</button>
-    <button class="loginButton">Einloggen</button>
-  </div>
-  
+    <a routerLink="/register" routerLinkActive="active"> <button class="registerButton">Registrieren</button></a>
+   
+    <a routerLink="/login" routerLinkActive="active" ><button class="loginButton" >Einloggen</button></a>
+  </div>  
 </div>
 
-<body>
   <div class="account">
   <div *ngFor="let customers of customer">
     <img src="{{ customers.customerPicture }}"/>
@@ -19,18 +18,19 @@
     <div>
        Mitglied seit: {{ customers.membership}}
        <div>
-         Angebote anzeigen &NonBreakingSpace;
-         Angebote erstellen
+         <a routerLink="/showown" routerLinkActive="active"> Angebote anzeigen</a> &NonBreakingSpace;
+       </div>
+       <div>
+         <a routerLink="/create" routerLinkActive="active"> Angebote erstellen</a>
+       </div>
          <div>
-          Angebote ändern &NonBreakingSpace;
-          Angebote löschen
+          <a routerLink ="/change" routerLinkeActive="active">Angebote ändern</a> &NonBreakingSpace; &NonBreakingSpace; &NonBreakingSpace;
          </div>
        </div>
     </div>  
   </div>
 </div>
   </div>
-</div>
   <div class="bsp">
     <div class="listings">
     <div *ngFor="let products of product">
@@ -45,7 +45,4 @@
     </div>
   </div>
   </div>
-
-</body>
-
 

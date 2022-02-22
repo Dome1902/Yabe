@@ -4,18 +4,33 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { StartsiteComponent } from './startsite/startsite.component';
 import { ImprintComponent } from './imprint/imprint.component';
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { OffersComponent } from './offers/offers.component';
+import { OwnOffersComponent } from './own-offers/own-offers.component';
+import { TestComponent } from './test/test.component'
+import { RouterModule } from '@angular/router';
+import {routes} from './app-routing.module';
+import { CreateOffersComponent } from './create-offers/create-offers.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     StartsiteComponent,
-    ImprintComponent
+    ImprintComponent,
+    LoginComponent,
+    RegisterComponent,
+    OffersComponent,
+    OwnOffersComponent,
+    TestComponent,
+    CreateOffersComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [],
   bootstrap: [AppComponent]

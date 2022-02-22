@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { product } from '../model/product-entry';
 import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-startsite',
@@ -10,7 +11,9 @@ import { Observable } from 'rxjs';
 export class StartsiteComponent implements OnInit {
   product: any[];
   customer: any[];
-  constructor() {
+  constructor(
+    private router: Router
+  ) {
     this.product = [
       {
         title: 'hello',
@@ -65,7 +68,9 @@ export class StartsiteComponent implements OnInit {
       }
     ]
   }
-
+  navigateTo(value:any) {
+    this.router.navigate(['../', value]);
+  }
 
   ngOnInit(): void {}
 }
