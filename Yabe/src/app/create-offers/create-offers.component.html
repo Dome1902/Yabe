@@ -1,1 +1,24 @@
-<p>create-offers works!</p>
+<div>
+    <div>     
+        <div class="container">
+          <input placeholder="Titel" class="title">        
+             <textarea 
+                placeholder="Beschreibung"
+                class="desc"
+              ></textarea>
+        </div>
+        <input placeholder="time" class="time">
+        <div class="container">
+            <button id="upload" class="img"
+                  (click)="onClick()"
+                  >Bild hochladen</button>
+          </div>
+        </div>
+        
+
+        <button class="finish"
+          [type]="'submit'"
+          (click)="post()"
+          >Produkt hinzufügen
+        </button>
+    </div>

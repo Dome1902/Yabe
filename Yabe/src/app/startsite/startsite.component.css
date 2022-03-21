@@ -1,32 +1,3 @@
-.startborder {
-  /* border: 2px solid red; */
-  display: flex;
-  border-width: 2px;
-  border-style: solid;
-  border-color: red;
-  padding: 1%;
-  align-items: center;
-}
-
-.registerButton {
-  height: 50px;
-  width: 100px;
-  float: right;
-}
-
-.loginButton {
-  height: 50px;
-  width: 100px;
-}
-.buttons {
-  margin-left: 19%;
-}
-.search {
-  height: 30px;
-  width: 500px;
-  margin-left: 38%;
-}
-
 .listings {
   display: grid;
   gap: 6% 0.6%;

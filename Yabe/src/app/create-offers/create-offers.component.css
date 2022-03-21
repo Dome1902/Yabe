@@ -1,0 +1,35 @@
+.title {
+    width: 50%;
+    height: 50px;
+    margin-top: 2%;
+    margin-left: 23%;
+}
+
+.desc {
+    width: 50%;
+    height: 100px;
+    margin-top: 1%;
+    margin-left: 23%;
+}
+
+.time {
+    width: 5%;
+    height: 30px;
+    margin-top: 1%;
+    margin-left: 23%;
+}
+.img {
+    width:30%;
+    height:50px;
+    margin-top: 1%;
+    margin-left: 35%;
+}
+
+
+
+.finish {
+    width: 30%;
+    height: 50px;
+    margin-top: 1%;
+    margin-left: 35%;
+}

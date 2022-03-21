@@ -13,6 +13,8 @@ import { TestComponent } from './test/test.component'
 import { RouterModule } from '@angular/router';
 import {routes} from './app-routing.module';
 import { CreateOffersComponent } from './create-offers/create-offers.component'
+//import { MarkdownToHtmlModule } from 'markdown-to-html-pipe';
+//import { MarkdownModule } from 'ngx-markdown';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import { CreateOffersComponent } from './create-offers/create-offers.component'
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    //MarkdownModule.forRoot(),
+    //MarkdownToHtmlModule,    
   ],
   providers: [],
   bootstrap: [AppComponent]

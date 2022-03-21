@@ -1,13 +1,3 @@
-<div class="startborder">
-  <p style="font-size: 30px">Yabe</p>
-  <input class="search" type="search" placeholder="Suche..." />
-  <div class="buttons">
-    <a routerLink="/register" routerLinkActive="active"> <button class="registerButton">Registrieren</button></a>
-   
-    <a routerLink="/login" routerLinkActive="active" ><button class="loginButton" >Einloggen</button></a>
-  </div>  
-</div>
-
   <div class="account">
   <div *ngFor="let customers of customer">
     <img src="{{ customers.customerPicture }}"/>
