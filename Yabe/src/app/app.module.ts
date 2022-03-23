@@ -15,6 +15,7 @@ import {routes} from './app-routing.module';
 import { CreateOffersComponent } from './create-offers/create-offers.component'
 //import { MarkdownToHtmlModule } from 'markdown-to-html-pipe';
 //import { MarkdownModule } from 'ngx-markdown';
+import {MatMenuModule} from '@angular/material/menu';
 
 @NgModule({
   declarations: [
@@ -28,13 +29,13 @@ import { CreateOffersComponent } from './create-offers/create-offers.component'
     TestComponent,
     CreateOffersComponent
   ],
+  
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    RouterModule,
-    //MarkdownModule.forRoot(),
-    //MarkdownToHtmlModule,   
+    RouterModule,  
+    MatMenuModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
