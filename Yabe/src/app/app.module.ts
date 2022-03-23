@@ -32,9 +32,9 @@ import { CreateOffersComponent } from './create-offers/create-offers.component'
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    RouterModule.forRoot(routes),
+    RouterModule,
     //MarkdownModule.forRoot(),
-    //MarkdownToHtmlModule,    
+    //MarkdownToHtmlModule,   
   ],
   providers: [],
   bootstrap: [AppComponent]
