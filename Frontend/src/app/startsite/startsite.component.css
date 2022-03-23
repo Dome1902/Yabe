@@ -1,0 +1,37 @@
+.listings {
+    display: grid;
+    gap: 6% 0.6%;
+    grid-template-columns: repeat(5,19%);
+    grid-template-rows: repeat(5, 200px);
+  }
+  
+  .listings1 {
+    border-width: 5px;
+    border-style: solid;
+    border-color: rgba(0, 0, 0, 1);
+    padding: 5px;
+    word-wrap: break-word;
+  }
+  
+  img {
+    max-width: 100%;
+    max-height: 100%;
+  }
+  
+  .counter {
+    display: flex;
+    margin-left: 75%;
+  }
+  
+  .info {
+    display: flex;
+  }
+  
+  .account {
+    float: right;
+    border-width: 2px;
+    border-style: solid;
+    border-color: red;
+    width: 20%;
+    word-wrap: break-word;
+  }
