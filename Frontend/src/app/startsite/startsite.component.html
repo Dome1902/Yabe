@@ -1,1 +1,38 @@
-<p>startsite works!</p>
+  <div class="account">
+  <div *ngFor="let customers of customer">
+    <img src="{{ customers.customerPicture }}"/>
+    <div>
+      Name: {{ customers.surname}}
+    <div>
+      Nachname: {{ customers.name}}    
+    <div>
+       Mitglied seit: {{ customers.membership}}
+       <div>
+         <a routerLink="/showown" routerLinkActive="active"> Angebote anzeigen</a> &NonBreakingSpace;
+       </div>
+       <div>
+         <a routerLink="/create" routerLinkActive="active"> Angebote erstellen</a>
+       </div>
+         <div>
+          <a routerLink ="/change" routerLinkeActive="active">Angebote ändern</a> &NonBreakingSpace; &NonBreakingSpace; &NonBreakingSpace;
+         </div>
+       </div>
+    </div>  
+  </div>
+</div>
+  </div>
+  <div class="bsp">
+    <div class="listings">
+    <div *ngFor="let products of product">
+      <div class="listings1">
+        {{ products.title }}
+        <img src="{{ products.picture }}" />
+        <div class="info">
+          {{ products.price }}
+          <div class="counter">{{ products.counter }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+
