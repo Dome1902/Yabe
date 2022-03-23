@@ -1,0 +1,36 @@
+{
+  "name": "auction-api",
+  "version": "1.0.0",
+  "description": "Auction management API",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js",
+    "seed": "node ./seeds/seed.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "http-status-codes": "^2.2.0",
+    "jsonwebtoken": "^8.5.1",
+    "moment": "^2.29.1",
+    "mongoose": "^6.1.8",
+    "multer": "^1.4.4",
+    "node-cron": "^3.0.0",
+    "swagger-ui-express": "^4.3.0",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^5.2.0",
+    "mongo-seeding": "^3.7.1",
+    "nodemon": "^2.0.15"
+  }
+}
