@@ -16,6 +16,7 @@ import { CreateOffersComponent } from './create-offers/create-offers.component'
 //import { MarkdownToHtmlModule } from 'markdown-to-html-pipe';
 //import { MarkdownModule } from 'ngx-markdown';
 import {MatMenuModule} from '@angular/material/menu';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import {MatMenuModule} from '@angular/material/menu';
     HttpClientModule,
     RouterModule,  
     MatMenuModule,
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

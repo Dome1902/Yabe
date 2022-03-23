@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatMenuTrigger } from '@angular/material/menu';
 /* import { FormControl, FormGroup, Validators } from '@angular/forms'; */
 
 interface Area {
@@ -12,13 +13,19 @@ interface Area {
   styleUrls: ['./create-offers.component.css']
 })
 export class CreateOffersComponent implements OnInit {
-
+  /* @ViewChild(MatMenuTrigger) trigger: MatMenuTrigger */ 
   constructor() { }
+
+  
 
   ngOnInit(): void {
     
   }
   
+  /* someMethod() {
+    this.trigger.openMenu();
+  } */
+
   onClick() {
     /* const fileInput = this.fileUpload.nativeElement;
     fileInput.click();
