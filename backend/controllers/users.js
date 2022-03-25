@@ -83,7 +83,7 @@ const login = async (req, res) => {
 
     // Validate user credentials
     if (!email || !password) {
-      return res.status(StatusCodes.OK).json({
+      return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
         message: 'Missing required fields',
         error: true
       })
@@ -93,7 +93,7 @@ const login = async (req, res) => {
     const user = await User.findOne({ email })
 
     if (!user) {
-      return res.status(StatusCodes.OK).json({
+      return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
         message: 'User not found',
         error: true
       })
@@ -103,7 +103,7 @@ const login = async (req, res) => {
     const validPassword = await bcrypt.compare(password, user.password)
 
     if (!validPassword) {
-      return res.status(StatusCodes.OK).json({
+      return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
         message: 'Wrong password',
         error: true
       })

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { LoginCredentials } from '../globals/types';
+import { BackendService } from '../services/backend.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -7,9 +9,18 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute, private backend: BackendService) { }
 
   ngOnInit(): void {
   }
 
+  onSubmit() {
+    let packet = {
+      email: (<HTMLInputElement>document.getElementById("login-mail")).value,
+      password: (<HTMLInputElement>document.getElementById("login-pw")).value
+    }
+    this.backend.login(packet).subscribe(resp => {
+      console.log(resp)
+    })
+  }
 }
