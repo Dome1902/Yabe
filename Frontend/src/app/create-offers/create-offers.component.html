@@ -3,21 +3,23 @@
         <div>
           <input placeholder="Titel" class="title">        
              <textarea 
-                placeholder="Beschreibung"
+                placeholder="Beschreibung" 
                 class="desc"
               ></textarea>
         </div> 
         <div>
-            <button id="upload" class="img"
-                  (click)="uploadFile()"
-                  >Bild hochladen
-            </button>
+           
 
-            <button mat-button [matMenuTriggerFor]="menu">Kategorien</button>
+            <button class="mat" mat-button [matMenuTriggerFor]="menu">Kategorie</button>
                 <mat-menu #menu="matMenu">
             <button mat-menu-item>Item 1</button>
             <button mat-menu-item>Item 2</button>
-              </mat-menu>
+              </mat-menu> 
+              
+              <button id="upload" class="img"
+                  (click)="uploadFile()"
+                  >Bild hochladen
+            </button>
           </div>          
           
         <input placeholder="time" class="time">

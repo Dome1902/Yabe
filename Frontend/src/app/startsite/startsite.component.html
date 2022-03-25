@@ -1,4 +1,7 @@
-  <div class="account">
+
+  
+
+<div class="account">
   <div *ngFor="let customers of customer">
     <img src="{{ customers.customerPicture }}"/>
     <div>
@@ -7,22 +10,25 @@
       Nachname: {{ customers.name}}    
     <div>
        Mitglied seit: {{ customers.membership}}
+       
+       <div class="links">
        <div>
-         <a routerLink="/showown" routerLinkActive="active"> Angebote anzeigen</a> &NonBreakingSpace;
+         <a routerLink="/showown" routerLinkActive="active" style="color: black;text-decoration: none"> Angebote anzeigen</a> 
        </div>
        <div>
-         <a routerLink="/create" routerLinkActive="active"> Angebote erstellen</a>
+         <a routerLink="/create" routerLinkActive="active" style="color: black;text-decoration: none"> Angebote erstellen</a>
        </div>
          <div>
-          <a routerLink ="/change" routerLinkeActive="active">Angebote ändern</a> &NonBreakingSpace; &NonBreakingSpace; &NonBreakingSpace;
+          <a routerLink ="/change" routerLinkeActive="active" style="color: black;text-decoration: none">Angebote ändern</a> 
          </div>
+        </div>
        </div>
     </div>  
   </div>
 </div>
   </div>
-  <div class="bsp">
-    <div class="listings">
+  
+    <div class="listings"><a routerLink ="/show" routerLinkeActive="active" style="color: black;text-decoration: none">
     <div *ngFor="let products of product">
       <div class="listings1">
         {{ products.title }}
@@ -33,6 +39,5 @@
         </div>
       </div>
     </div>
-  </div>
-  </div>
-
+  </a>
+  </div> 
