@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { product } from '../model/product-entry';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
+import { BackendService } from '../services/backend.service';
 
 @Component({
   selector: 'app-startsite',
@@ -12,7 +13,8 @@ export class StartsiteComponent implements OnInit {
   product: any[];
   customer: any[];
   constructor(
-    private router: Router
+    private router: Router,
+    private backend: BackendService
   ) {
     this.product = [
       {
@@ -58,6 +60,14 @@ export class StartsiteComponent implements OnInit {
           'https://cdn.pixabay.com/photo/2017/08/02/01/01/living-room-2569325_1280.jpg',
       },
     ];
+
+    //Ruft Asynchron die Artikel aus der DB ab
+    this.backend.getArticle().subscribe(articleResp => {
+
+      //Setzt das Ergebnis des Datenbank aufrufs als neue Liste -> Frontend aktualisiert sich
+      // von selbst, wenn wie bisher die Artikelliste auf product ausliest
+      this.product = <any[]>articleResp;
+    })
 
     this.customer = [
       {

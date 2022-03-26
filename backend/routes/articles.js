@@ -2,7 +2,9 @@ const { Router } = require('express')
 const controller = require('../controllers/articles')
 const ensureAuth = require('../middleware/ensureAuth')
 
-const router = Router().use(ensureAuth)
+//Bennis Änderung
+//const router = Router().use(ensureAuth)
+const router = Router();
 
 // get all articles
 router.get('/', controller.getArticles)
@@ -26,6 +28,6 @@ router.get('/:id', controller.getArticle)
 router.put('/:id', controller.updateArticle)
 
 // delete article
-router.delete('/:id', controller.deleteArticle)
+router.delete('/:id', ensureAuth, controller.deleteArticle)
 
 module.exports = router
