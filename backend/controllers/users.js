@@ -77,6 +77,8 @@ const register = async (req, res) => {
 
 // login
 const login = async (req, res) => {
+  console.log(req.headers)
+  console.log("hallo")
   try {
     // Get user credentials
     const { email, password } = req.body

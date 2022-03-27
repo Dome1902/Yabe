@@ -4,7 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { StartsiteComponent } from './startsite/startsite.component';
 import { ImprintComponent } from './imprint/imprint.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { OffersComponent } from './offers/offers.component';
@@ -17,6 +17,7 @@ import { CreateOffersComponent } from './create-offers/create-offers.component'
 //import { MarkdownModule } from 'ngx-markdown';
 import {MatMenuModule} from '@angular/material/menu';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AuthorizationInterceptor } from './services/authorization.interceptor';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatMenuModule,
     BrowserAnimationsModule,
   ],
-  providers: [],
+  providers: [
+    {provide: HTTP_INTERCEPTORS, useClass:AuthorizationInterceptor, multi:true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
