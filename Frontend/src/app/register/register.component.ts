@@ -18,9 +18,9 @@ export class RegisterComponent implements OnInit {
     let packet = {
       username: (<HTMLInputElement>document.getElementById("register-username")).value,
       email: (<HTMLInputElement>document.getElementById("register-mail")).value,
-      password: (<HTMLInputElement>document.getElementById("register-pw")).value
+      password: (<HTMLInputElement>document.getElementById("register-password")).value
     }
-    this.backend.login(packet).subscribe(resp => {
+    this.backend.register(packet).subscribe(resp => {
       console.log(resp)
     })
   }
