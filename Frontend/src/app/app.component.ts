@@ -8,9 +8,4 @@ import {BackendService} from "./services/backend.service";
 })
 export class AppComponent {
   title = 'Yabe';
-  constructor(public backend: BackendService) {}
-
-  logout(): void {
-    this.backend.token = "";
-  }
 }

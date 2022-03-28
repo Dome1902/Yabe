@@ -1,8 +1,51 @@
+<nz-modal [(nzVisible)]="loginService.loginVisible" nzTitle="Login" (nzOnCancel)="handleCancel()" [nzFooter]="null" [nzWidth]="300">
+  <ng-container *nzModalContent>
+    <form *ngIf="this.isLogin" nz-form [formGroup]="loginForm" class="login-form" (ngSubmit)="submitLogin()">
+      <nz-form-item>
+        <nz-form-control nzErrorTip="Bitte geben Sie Ihre E-Mail Adresse an">
+          <nz-input-group nzPrefixIcon="user">
+            <input type="text" nz-input formControlName="loginEmail" placeholder="max@mustermann.de" />
+          </nz-input-group>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-control nzErrorTip="Bitte geben Sie ein Passwort ein">
+          <nz-input-group nzPrefixIcon="lock">
+            <input type="password" nz-input formControlName="loginPassword" placeholder="Passwort" />
+          </nz-input-group>
+        </nz-form-control>
+      </nz-form-item>
+      <button nz-button class="login-form-button login-form-margin" nzType="primary" style="width: 100%">Log in</button>
+      Oder
+      <a (click)="toggleIsLogin()">registriere dich</a>
+    </form>
 
-    <input id="login-mail" type="email" placeholder="Mail" #mail />
-    <input id="login-pw" type="password" placeholder="Password" #pw />
-    <button (click)="onSubmit()">Einloggen</button>
-    <br>
-    <div *ngIf="!this.wasValid" style="color: red">
-      Bitte überprüfen Sie Ihre Eingaben!
-    </div>
+    <!-- Register Form -->
+    <form *ngIf="!this.isLogin" nz-form [formGroup]="registerForm" class="login-form" (ngSubmit)="submitRegistration()">
+      <nz-form-item>
+        <nz-form-control nzErrorTip="Bitte geben Sie Ihren Benutzernamen an">
+          <nz-input-group nzPrefixIcon="user">
+            <input type="text" nz-input formControlName="registerUsername" placeholder="Benutzername" />
+          </nz-input-group>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-control nzErrorTip="Bitte geben Sie Ihre E-Mail Adresse an">
+          <nz-input-group nzPrefixIcon="user">
+            <input type="text" nz-input formControlName="registerEmail" placeholder="max@mustermann.de" />
+          </nz-input-group>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-control nzErrorTip="Bitte geben Sie ein Passwort ein">
+          <nz-input-group nzPrefixIcon="lock">
+            <input type="password" nz-input formControlName="registerPassword" placeholder="Passwort" />
+          </nz-input-group>
+        </nz-form-control>
+      </nz-form-item>
+      <button nz-button class="login-form-button login-form-margin" nzType="primary" style="width: 100%">Registrieren</button>
+      Oder
+      <a (click)="toggleIsLogin()">Log dich ein</a>
+    </form>
+  </ng-container>
+</nz-modal>

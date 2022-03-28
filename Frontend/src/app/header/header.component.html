@@ -1,0 +1,15 @@
+<nz-page-header>
+  <nz-page-header-title>Yabe</nz-page-header-title>
+  <nz-page-header-subtitle>Affig gut!</nz-page-header-subtitle>
+  <nz-page-header-extra>
+    <button *ngIf="!backend.token" nz-button nzType="primary"(click)="openLoginModal()"><i nz-icon nzType="login"></i>Login</button>
+    <button *ngIf="backend.token" nz-button nzType="primary" (click)="logout()">Logout</button>
+  </nz-page-header-extra>
+</nz-page-header>
+<!--img src="assets/images/Yabe.png"/>
+
+<ul nz-menu nzMode="horizontal" nzTheme="dark" style="float: right;">
+  <li nz-menu-item routerLink="/login" *ngIf="!backend.token" routerLinkActive="active">Einloggen</li>
+  <li nz-menu-item routerLink="/register" *ngIf="!backend.token" routerLinkActive="active">Registrieren</li>
+  <li nz-menu-item *ngIf="backend.token" (click)="logout()"></li>
+</ul-->

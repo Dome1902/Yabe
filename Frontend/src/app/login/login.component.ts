@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import { BackendService } from '../services/backend.service';
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {LoginService} from "../services/login.service";
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -8,26 +10,81 @@ import { BackendService } from '../services/backend.service';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute, private backend: BackendService, private router: Router) { }
+  loginForm!: FormGroup;
 
-  wasValid: boolean | undefined;
-  ngOnInit(): void {
-    this.wasValid = true;
+  registerForm!: FormGroup;
+
+  isLogin: boolean = true;
+
+  constructor(private fb: FormBuilder, private backend: BackendService, public loginService: LoginService) {}
+
+  submitLogin(): void {
+    if (this.loginForm.valid) {
+      let packet = {
+        email: this.loginForm.value.loginEmail,
+        password: this.loginForm.value.loginPassword
+      }
+      this.backend.login(packet).subscribe({
+        next: (resp: any) => {
+          this.backend.token = resp.token;
+        },
+        error: err =>  {
+          console.log(err)
+        }
+      });
+    } else {
+      Object.values(this.loginForm.controls).forEach(control => {
+        if (control.invalid) {
+          control.markAsDirty();
+          control.updateValueAndValidity({ onlySelf: true });
+        }
+      });
+    }
   }
 
-  onSubmit() {
-    let packet = {
-      email: (<HTMLInputElement>document.getElementById("login-mail")).value,
-      password: (<HTMLInputElement>document.getElementById("login-pw")).value
+  submitRegistration(): void {
+    if (this.registerForm.valid) {
+      let packet = {
+        username: this.registerForm.value.registerUsername,
+        email: this.registerForm.value.registerEmail,
+        password: this.registerForm.value.registerPassword
+      }
+      this.backend.register(packet).subscribe({
+        next: (resp: any) => {
+          this.backend.token = resp.token;
+        },
+        error: err =>  {
+          console.log(err)
+        }
+      });
+    } else {
+      Object.values(this.registerForm.controls).forEach(control => {
+        if (control.invalid) {
+          control.markAsDirty();
+          control.updateValueAndValidity({ onlySelf: true });
+        }
+      });
     }
-    this.backend.login(packet).subscribe((resp: any) => {
-      console.log(resp);
-      this.backend.token = resp.token;
-      this.router.navigate(['start'], {relativeTo: this.route});
-      this.wasValid = true;
-    }, (error) => {
-      console.log(error);
-      this.wasValid = false;
-    })
+  }
+
+  toggleIsLogin(): void {
+    this.isLogin = !this.isLogin;
+  }
+
+  handleCancel(): void {
+    this.loginService.closeLoginModal();
+  }
+
+  ngOnInit(): void {
+    this.isLogin = true;
+    this.loginForm = this.fb.group({
+      loginEmail: [null, [Validators.required]],
+      loginPassword: [null, [Validators.required]]
+    });
+    this.registerForm = this.fb.group({
+      registerUsername: [null, [Validators.required]],
+      registerEmail: [null, [Validators.required]],
+      registerPassword: [null, [Validators.required]]
+    });
   }
 }

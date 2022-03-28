@@ -1,11 +1,8 @@
-<div class="startborder">
-    <a routerLink="/start" routerLinkActive="active" style="color: black;text-decoration: none"><p style="font-size: 50px;font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif ;margin-left: 20px">Yabe</p></a>
-    <img src="assets/images/Yabe.png"/>
-    <input class="search" type="search" placeholder="Suche..." />
-    <div class="buttons">
-      <a routerLink="/register" *ngIf="!backend.token" routerLinkActive="active"> <button class="registerButton">Registrieren</button></a>
-      <a routerLink="/login" *ngIf="!backend.token" routerLinkActive="active" ><button class="loginButton" >Einloggen</button></a>
-      <a *ngIf="backend.token"><button class="loginButton" (click)="logout()">Ausloggen</button></a>
-    </div>
+<div nz-row nzJustify="center">
+  <div nz-col nzXs="24">
+    <app-header></app-header>
+    <router-outlet></router-outlet>
   </div>
-<router-outlet></router-outlet>
+</div>
+
+<app-login></app-login>

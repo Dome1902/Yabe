@@ -15,6 +15,7 @@ import {routes} from './app-routing.module';
 import { CreateOffersComponent } from './create-offers/create-offers.component'
 //import { MarkdownToHtmlModule } from 'markdown-to-html-pipe';
 //import { MarkdownModule } from 'ngx-markdown';
+import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import {MatMenuModule} from '@angular/material/menu';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthorizationInterceptor } from './services/authorization.interceptor';
@@ -22,7 +23,17 @@ import { NZ_I18N } from 'ng-zorro-antd/i18n';
 import { de_DE } from 'ng-zorro-antd/i18n';
 import { registerLocaleData } from '@angular/common';
 import de from '@angular/common/locales/de';
-import { FormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { HeaderComponent } from './header/header.component';
+import {NzMenuModule} from "ng-zorro-antd/menu";
+import {NzButtonModule} from "ng-zorro-antd/button";
+import { NzIconModule } from 'ng-zorro-antd/icon';
+import { NzTypographyModule } from 'ng-zorro-antd/typography';
+import { NzPageHeaderModule } from 'ng-zorro-antd/page-header';
+import { NzGridModule } from 'ng-zorro-antd/grid';
+import { NzFormModule } from 'ng-zorro-antd/form';
+import {NzInputModule} from "ng-zorro-antd/input";
+import { NzModalModule } from 'ng-zorro-antd/modal';
 
 registerLocaleData(de);
 
@@ -36,17 +47,29 @@ registerLocaleData(de);
     OffersComponent,
     OwnOffersComponent,
     TestComponent,
-    CreateOffersComponent
+    CreateOffersComponent,
+    HeaderComponent
   ],
-  
+
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    RouterModule,  
+    RouterModule,
     MatMenuModule,
     BrowserAnimationsModule,
     FormsModule,
+    NzLayoutModule,
+    NzMenuModule,
+    NzButtonModule,
+    NzIconModule,
+    NzTypographyModule,
+    NzPageHeaderModule,
+    NzGridModule,
+    NzFormModule,
+    ReactiveFormsModule,
+    NzInputModule,
+    NzModalModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass:AuthorizationInterceptor, multi:true},
