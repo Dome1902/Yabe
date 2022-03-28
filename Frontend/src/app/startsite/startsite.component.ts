@@ -14,7 +14,7 @@ export class StartsiteComponent implements OnInit {
     private router: Router,
     private articleService: ArticleService
   ) {
-    this.product = [
+    /*this.product = [
       {
         title: 'hello',
         price: '6,70€',
@@ -57,8 +57,8 @@ export class StartsiteComponent implements OnInit {
         picture:
           'https://cdn.pixabay.com/photo/2017/08/02/01/01/living-room-2569325_1280.jpg',
       },
-    ];
-
+    ];*/
+    this.product = [];
     //Ruft Asynchron die Artikel aus der DB ab
     this.articleService.getArticle().subscribe(articleResp => {
 

@@ -27,26 +27,30 @@ export class OwnOffersComponent implements OnInit {
 
   submitNewOffer(): void {
     if (this.createOfferForm.valid) {
-      let offer = {
-        name: this.createOfferForm.value.name,
-        description: this.createOfferForm.value.description,
-        image: this.imageb64
-      }
-      console.log(offer);
-      this.articleService.createArticle(offer).subscribe({
-        next: (resp: any) => {
-          this.modalVisible = false;
-          this.updateProducts();
-        },
-        error: err =>  {
-          console.log(err);
-          if (err.status === 401) {
-            this.msg.error('Für das Hochladen eines Angebots müssen Sie angemeldet sein. Bitte prüfen Sie ihren Status');
-          } else if (err.status === 413) {
-            this.msg.error('Das erstellen des Angebots hat leider nicht geklappt. Bitte probieren Sie es noch einmal mit einem sehr kleinen Bild')
-          }
+      if (this.imageb64 === '') {
+        this.msg.error('Bitte laden Sie ein Bild hoch.')
+      } else {
+        let offer = {
+          name: this.createOfferForm.value.name,
+          description: this.createOfferForm.value.description,
+          image: this.imageb64
         }
-      });
+        console.log(offer);
+        this.articleService.createArticle(offer).subscribe({
+          next: (resp: any) => {
+            this.modalVisible = false;
+            this.updateProducts();
+          },
+          error: err =>  {
+            console.log(err);
+            if (err.status === 401) {
+              this.msg.error('Für das Hochladen eines Angebots müssen Sie angemeldet sein. Bitte prüfen Sie ihren Status');
+            } else if (err.status === 413) {
+              this.msg.error('Das erstellen des Angebots hat leider nicht geklappt. Bitte probieren Sie es noch einmal mit einem sehr kleinen Bild')
+            }
+          }
+        });
+      }
     } else {
       Object.values(this.createOfferForm.controls).forEach(control => {
         if (control.invalid) {
