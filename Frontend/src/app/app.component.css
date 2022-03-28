@@ -1,0 +1,10 @@
+.app-header {
+  background-color: #ed8b28;
+  height: 5vh;
+}
+
+.app-body {
+  background-color: #555559;
+  display: flex;
+  flex-direction: column;
+}

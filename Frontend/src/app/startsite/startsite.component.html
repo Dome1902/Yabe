@@ -1,4 +1,4 @@
-<div class="account">
+<!--div class="account">
   <div *ngFor="let customers of customer">
     <img src="{{ customers.customerPicture }}"/>
     <div>
@@ -23,12 +23,12 @@
       </div>
     </div>
   </div>
-</div>
+</div-->
 
 <div class="listings">
   <a routerLink ="/show" routerLinkeActive="active" style="color: black;text-decoration: none">
     <div nz-row [nzGutter]="[16, 16]">
-      <div nz-col *ngFor="let products of product">
+      <div nz-col [nzSpan]="6" *ngFor="let products of product">
         <app-article [article]="products"></app-article>
       </div>
     </div>

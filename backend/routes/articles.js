@@ -13,7 +13,7 @@ router.get('/', controller.getArticles)
 router.post('/', ensureAuth, controller.createArticle)
 
 // get articles for given user
-router.get('/user/:userId', controller.getUserArticle)
+router.get('/user', ensureAuth, controller.getUserArticle)
 
 // get article available for bidding
 router.get('/available', controller.getAvailableArticles)

@@ -37,6 +37,8 @@ import { ArticleComponent } from './article/article.component';
 import { NzCardModule } from 'ng-zorro-antd/card';
 import {NzDropDownModule} from "ng-zorro-antd/dropdown";
 import { NzAvatarModule } from 'ng-zorro-antd/avatar';
+import { NzUploadModule } from 'ng-zorro-antd/upload';
+import { NzMessageModule } from 'ng-zorro-antd/message';
 
 registerLocaleData(de);
 
@@ -75,7 +77,9 @@ registerLocaleData(de);
     NzModalModule,
     NzCardModule,
     NzDropDownModule,
-    NzAvatarModule
+    NzAvatarModule,
+    NzUploadModule,
+    NzMessageModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass:AuthorizationInterceptor, multi:true},

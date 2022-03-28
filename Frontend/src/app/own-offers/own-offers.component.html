@@ -1,1 +1,42 @@
-<p>own-offers works!</p>
+<div nz-row style="margin-bottom: 24px;">
+  <div nz-col>
+    <button nz-button nzType="primary" (click)="openModal()"><i nz-icon nzType="plus"></i>Angebot hinzufügen</button>
+  </div>
+</div>
+<div nz-row [nzGutter]="[16, 16]">
+  <div nz-col [nzSpan]="6" *ngFor="let product of products">
+    <app-article [article]="product"></app-article>
+  </div>
+</div>
+
+
+<nz-modal [(nzVisible)]="this.modalVisible" nzTitle="Angebot hinzufügen" (nzOnCancel)="handleCancel()" [nzFooter]="null" nzWidth="30vw">
+  <ng-container *nzModalContent>
+    <form nz-form [formGroup]="createOfferForm" class="login-form" (ngSubmit)="submitNewOffer()">
+      <nz-form-item>
+        <nz-form-control nzErrorTip="Bitte geben Sie ein Titel für das Angebot an">
+          <nz-input-group>
+            <input type="text" nz-input formControlName="name" placeholder="Titel" />
+          </nz-input-group>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-control nzErrorTip="Bitte beschreiben Sie Ihr Angebot in 1-2 Sätzen.">
+          <nz-input-group>
+            <input type="text" nz-input formControlName="description" placeholder="Beschreibung" />
+          </nz-input-group>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <!--nz-upload nzType="drag" nzAction="https://www.mocky.io/v2/5cc8019d300000980a055e76" (nzChange)="handleChange($event)" style="width: 100%">
+        <p class="ant-upload-drag-icon">
+          <i nz-icon nzType="inbox"></i>
+        </p>
+        <p class="ant-upload-text">Klicken oder Datei in diesen Bereich ziehen</p>
+        </nz-upload-->
+        <input type="file" (change)="fileChangeEvent($event)">
+      </nz-form-item>
+      <button nz-button class="login-form-button login-form-margin" nzType="primary" style="width: 100%">Hochladen</button>
+    </form>
+  </ng-container>
+</nz-modal>

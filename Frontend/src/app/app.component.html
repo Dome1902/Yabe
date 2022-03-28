@@ -1,7 +1,9 @@
-<div nz-row nzJustify="center">
+<div nz-row nzJustify="center" class="app-body">
   <div nz-col nzXs="24">
-    <app-header></app-header>
-    <router-outlet></router-outlet>
+    <app-header class="app-header"></app-header>
+    <div style="margin: 24px; min-height: 95vh">
+      <router-outlet></router-outlet>
+    </div>
   </div>
 </div>
 

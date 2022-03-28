@@ -17,4 +17,8 @@ export class ArticleService {
   createArticle(article: Article) {
     return this.http.post(environment.backendUrl + "/articles", article);
   }
+
+  getUserArticle() {
+    return this.http.get(environment.backendUrl + "/articles/user");
+  }
 }

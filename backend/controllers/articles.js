@@ -16,8 +16,8 @@ const getArticles = async (req, res) => {
 // get user's articles
 const getUserArticle = async (req, res) => {
   try {
-    const { userId } = req.params
-    const articles = await Article.find({ user: userId })
+    const user = req.user
+    const articles = await Article.find({ user: user.userId })
 
     res.status(StatusCodes.OK).json(articles)
   } catch (error) {
