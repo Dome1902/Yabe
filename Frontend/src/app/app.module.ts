@@ -18,6 +18,13 @@ import { CreateOffersComponent } from './create-offers/create-offers.component'
 import {MatMenuModule} from '@angular/material/menu';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthorizationInterceptor } from './services/authorization.interceptor';
+import { NZ_I18N } from 'ng-zorro-antd/i18n';
+import { de_DE } from 'ng-zorro-antd/i18n';
+import { registerLocaleData } from '@angular/common';
+import de from '@angular/common/locales/de';
+import { FormsModule } from '@angular/forms';
+
+registerLocaleData(de);
 
 @NgModule({
   declarations: [
@@ -39,9 +46,11 @@ import { AuthorizationInterceptor } from './services/authorization.interceptor';
     RouterModule,  
     MatMenuModule,
     BrowserAnimationsModule,
+    FormsModule,
   ],
   providers: [
-    {provide: HTTP_INTERCEPTORS, useClass:AuthorizationInterceptor, multi:true}
+    {provide: HTTP_INTERCEPTORS, useClass:AuthorizationInterceptor, multi:true},
+    { provide: NZ_I18N, useValue: de_DE }
   ],
   bootstrap: [AppComponent]
 })
