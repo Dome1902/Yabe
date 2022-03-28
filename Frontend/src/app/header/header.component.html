@@ -2,8 +2,8 @@
   <nz-page-header-title>Yabe</nz-page-header-title>
   <nz-page-header-subtitle>Affig gut!</nz-page-header-subtitle>
   <nz-page-header-extra>
-    <button *ngIf="!backend.token" nz-button nzType="primary" nzSize="large" (click)="openLoginModal()"><i nz-icon nzType="login"></i>&nbsp;Login</button>
-    <button *ngIf="backend.token" nz-button nzType="primary" nzSize="large" nz-dropdown [nzDropdownMenu]="menu1" nzTrigger="click"><i nz-icon nzType="user"></i>&nbsp;Profil</button>
+    <button *ngIf="!loginService.token" nz-button nzType="primary" nzSize="large" (click)="openLoginModal()"><i nz-icon nzType="login"></i>&nbsp;Login</button>
+    <button *ngIf="loginService.token" nz-button nzType="primary" nzSize="large" nz-dropdown [nzDropdownMenu]="menu1" nzTrigger="click"><i nz-icon nzType="user"></i>&nbsp;Profil</button>
   </nz-page-header-extra>
 </nz-page-header>
 

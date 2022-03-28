@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { BackendService } from '../services/backend.service';
+import { ArticleService } from '../services/article.service';
 
 @Component({
   selector: 'app-startsite',
@@ -12,7 +12,7 @@ export class StartsiteComponent implements OnInit {
   customer: any[];
   constructor(
     private router: Router,
-    private backend: BackendService
+    private articleService: ArticleService
   ) {
     this.product = [
       {
@@ -60,7 +60,7 @@ export class StartsiteComponent implements OnInit {
     ];
 
     //Ruft Asynchron die Artikel aus der DB ab
-    this.backend.getArticle().subscribe(articleResp => {
+    this.articleService.getArticle().subscribe(articleResp => {
 
       //Setzt das Ergebnis des Datenbank aufrufs als neue Liste -> Frontend aktualisiert sich
       // von selbst, wenn wie bisher die Artikelliste auf product ausliest

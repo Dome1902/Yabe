@@ -6,19 +6,9 @@ import {environment} from "../../environments/environment";
 @Injectable({
   providedIn: 'root'
 })
-export class BackendService {
-
-  token = ""
+export class ArticleService {
 
   constructor(private http: HttpClient) { }
-
-  login(credentials: LoginCredentials) {
-    return this.http.post(environment.backendUrl + "/users/login", credentials);
-  }
-
-  register(credentials: RegisterCredentials) {
-    return this.http.post(environment.backendUrl + "/users/register", credentials);
-  }
 
   getArticle() {
     return this.http.get(environment.backendUrl + "/articles")

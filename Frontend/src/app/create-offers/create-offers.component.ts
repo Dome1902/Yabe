@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import {BackendService} from "../services/backend.service";
+import {ArticleService} from "../services/article.service";
 
 interface Area {
   name: string;
@@ -13,7 +13,7 @@ interface Area {
 })
 export class CreateOffersComponent implements OnInit {
   /* @ViewChild(MatMenuTrigger) trigger: MatMenuTrigger */
-  constructor(private backend: BackendService) { }
+  constructor(private articleService: ArticleService) { }
 
 
 
@@ -44,7 +44,7 @@ export class CreateOffersComponent implements OnInit {
       description: (<HTMLInputElement>document.getElementById("input-description")).value,
       image: "Bild-upload funktioniert net"
     }
-    this.backend.createArticle(packet).subscribe((resp: any) => {
+    this.articleService.createArticle(packet).subscribe((resp: any) => {
       console.log(resp);
     })
     /* this.colorLabel = document.getElementById('colorLabel').innerHTML;

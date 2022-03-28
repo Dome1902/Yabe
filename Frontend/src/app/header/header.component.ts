@@ -1,5 +1,5 @@
 import {Component, OnInit, ViewContainerRef} from '@angular/core';
-import {BackendService} from "../services/backend.service";
+import {ArticleService} from "../services/article.service";
 import {NzModalService} from "ng-zorro-antd/modal";
 import {LoginComponent} from "../login/login.component";
 import {LoginService} from "../services/login.service";
@@ -11,10 +11,10 @@ import {LoginService} from "../services/login.service";
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(public backend: BackendService, private loginService: LoginService) {}
+  constructor(public loginService: LoginService) {}
 
   logout(): void {
-    this.backend.token = "";
+    this.loginService.token = "";
   }
 
   openLoginModal(): void {

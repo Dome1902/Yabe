@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
-import { BackendService } from '../services/backend.service';
+import { ArticleService } from '../services/article.service';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {LoginService} from "../services/login.service";
 @Component({
@@ -16,7 +16,7 @@ export class LoginComponent implements OnInit {
 
   isLogin: boolean = true;
 
-  constructor(private fb: FormBuilder, private backend: BackendService, public loginService: LoginService) {}
+  constructor(private fb: FormBuilder, public loginService: LoginService) {}
 
   submitLogin(): void {
     if (this.loginForm.valid) {
@@ -24,9 +24,9 @@ export class LoginComponent implements OnInit {
         email: this.loginForm.value.loginEmail,
         password: this.loginForm.value.loginPassword
       }
-      this.backend.login(packet).subscribe({
+      this.loginService.login(packet).subscribe({
         next: (resp: any) => {
-          this.backend.token = resp.token;
+          this.loginService.token = resp.token;
           this.loginService.closeLoginModal();
         },
         error: err =>  {
@@ -50,9 +50,9 @@ export class LoginComponent implements OnInit {
         email: this.registerForm.value.registerEmail,
         password: this.registerForm.value.registerPassword
       }
-      this.backend.register(packet).subscribe({
+      this.loginService.register(packet).subscribe({
         next: (resp: any) => {
-          this.backend.token = resp.token;
+          this.loginService.token = resp.token;
           this.loginService.closeLoginModal();
         },
         error: err =>  {
