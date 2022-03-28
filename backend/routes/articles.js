@@ -10,7 +10,7 @@ const router = Router();
 router.get('/', controller.getArticles)
 
 // create article
-router.post('/', controller.createArticle)
+router.post('/', ensureAuth, controller.createArticle)
 
 // get articles for given user
 router.get('/user/:userId', controller.getUserArticle)

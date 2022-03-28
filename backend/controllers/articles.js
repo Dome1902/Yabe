@@ -70,7 +70,6 @@ const getArticle = async (req, res) => {
 const createArticle = async (req, res) => {
   try {
     const user = req.user
-    console.log(user)
     const { name, description, image } = req.body
     const articleInfo = { name, description, image, user: user.userId }
 
@@ -83,7 +82,7 @@ const createArticle = async (req, res) => {
     res.status(StatusCodes.OK).json(newArticle)
   } catch (error) {
     console.log(error)
-    res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({ msg: 'Server error!' })
+    res.status(StatusCodes.FORBIDDEN).json({ msg: 'No valid credential' })
   }
 }
 

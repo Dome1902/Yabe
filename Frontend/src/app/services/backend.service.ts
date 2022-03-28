@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { LoginCredentials, RegisterCredentials } from '../globals/types';
+import {Article, LoginCredentials, RegisterCredentials} from '../globals/types';
 
 @Injectable({
   providedIn: 'root'
@@ -24,5 +24,9 @@ export class BackendService {
 
   getArticle() {
     return this.http.get(this.server + "/articles")
+  }
+
+  createArticle(article: Article) {
+    return this.http.post(this.server + "/articles", article);
   }
 }

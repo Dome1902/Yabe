@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatMenuTrigger } from '@angular/material/menu';
+import {BackendService} from "../services/backend.service";
 /* import { FormControl, FormGroup, Validators } from '@angular/forms'; */
 
 interface Area {
@@ -13,15 +14,15 @@ interface Area {
   styleUrls: ['./create-offers.component.css']
 })
 export class CreateOffersComponent implements OnInit {
-  /* @ViewChild(MatMenuTrigger) trigger: MatMenuTrigger */ 
-  constructor() { }
+  /* @ViewChild(MatMenuTrigger) trigger: MatMenuTrigger */
+  constructor(private backend: BackendService) { }
 
-  
+
 
   ngOnInit(): void {
-    
+
   }
-  
+
   /* someMethod() {
     this.trigger.openMenu();
   } */
@@ -39,7 +40,15 @@ export class CreateOffersComponent implements OnInit {
       this.uploadFile(); */
   }
 
-  post() {
+  submit() {
+    let packet = {
+      name: (<HTMLInputElement>document.getElementById("input-title")).value,
+      description: (<HTMLInputElement>document.getElementById("input-description")).value,
+      image: "Bild-upload funktioniert net"
+    }
+    this.backend.createArticle(packet).subscribe((resp: any) => {
+      console.log(resp);
+    })
     /* this.colorLabel = document.getElementById('colorLabel').innerHTML;
     this.form.get('areaId').patchValue(this.selectedArea.name);
     this.form.get('color').patchValue(this.colorLabel);

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import { BackendService } from '../services/backend.service';
 @Component({
   selector: 'app-login',
@@ -8,9 +8,11 @@ import { BackendService } from '../services/backend.service';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute, private backend: BackendService) { }
+  constructor(private route: ActivatedRoute, private backend: BackendService, private router: Router) { }
 
+  wasValid: boolean | undefined;
   ngOnInit(): void {
+    this.wasValid = true;
   }
 
   onSubmit() {
@@ -21,6 +23,11 @@ export class LoginComponent implements OnInit {
     this.backend.login(packet).subscribe((resp: any) => {
       console.log(resp);
       this.backend.token = resp.token;
+      this.router.navigate(['start'], {relativeTo: this.route});
+      this.wasValid = true;
+    }, (error) => {
+      console.log(error);
+      this.wasValid = false;
     })
   }
 }

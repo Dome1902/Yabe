@@ -2,3 +2,7 @@
     <input id="login-mail" type="email" placeholder="Mail" #mail />
     <input id="login-pw" type="password" placeholder="Password" #pw />
     <button (click)="onSubmit()">Einloggen</button>
+    <br>
+    <div *ngIf="!this.wasValid" style="color: red">
+      Bitte überprüfen Sie Ihre Eingaben!
+    </div>

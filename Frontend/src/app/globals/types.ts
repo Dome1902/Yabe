@@ -7,3 +7,9 @@ export interface RegisterCredentials {
     email: string;
     password: string;
 }
+
+export interface Article {
+  name: string;
+  description: string;
+  image: string;
+}

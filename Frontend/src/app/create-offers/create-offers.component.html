@@ -1,34 +1,33 @@
 <div>
-    <div>     
+    <div>
         <div>
-          <input placeholder="Titel" class="title">        
-             <textarea 
-                placeholder="Beschreibung" 
-                class="desc"
-              ></textarea>
-        </div> 
+          <input placeholder="Titel" id="input-title" class="title">
+          <textarea
+            id="input-description"
+            placeholder="Beschreibung"
+            class="desc"
+          ></textarea>
+        </div>
         <div>
-           
-
-            <button class="mat" mat-button [matMenuTriggerFor]="menu">Kategorie</button>
+            <!--button class="mat" mat-button [matMenuTriggerFor]="menu">Kategorie</button>
                 <mat-menu #menu="matMenu">
             <button mat-menu-item>Item 1</button>
             <button mat-menu-item>Item 2</button>
-              </mat-menu> 
-              
+              </mat-menu-->
+
               <button id="upload" class="img"
                   (click)="uploadFile()"
                   >Bild hochladen
             </button>
-          </div>          
-          
+          </div>
+
         <input placeholder="time" class="time">
-        
-      </div>     
+
+      </div>
 
         <button class="finish"
           [type]="'submit'"
-          (click)="post()"
+          (click)="submit()"
           >Produkt hinzufügen
         </button>
     </div>

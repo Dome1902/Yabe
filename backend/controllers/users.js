@@ -77,15 +77,13 @@ const register = async (req, res) => {
 
 // login
 const login = async (req, res) => {
-  console.log(req.headers)
-  console.log("hallo")
   try {
     // Get user credentials
     const { email, password } = req.body
 
     // Validate user credentials
     if (!email || !password) {
-      return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
+      return res.status(StatusCodes.BAD_REQUEST).json({
         message: 'Missing required fields',
         error: true
       })
@@ -95,7 +93,7 @@ const login = async (req, res) => {
     const user = await User.findOne({ email })
 
     if (!user) {
-      return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
+      return res.status(StatusCodes.BAD_REQUEST).json({
         message: 'User not found',
         error: true
       })
@@ -105,7 +103,7 @@ const login = async (req, res) => {
     const validPassword = await bcrypt.compare(password, user.password)
 
     if (!validPassword) {
-      return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
+      return res.status(StatusCodes.BAD_REQUEST).json({
         message: 'Wrong password',
         error: true
       })
