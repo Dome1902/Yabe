@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { RegisterCredentials } from '../globals/types';
-import { AuthorizationInterceptor } from '../services/authorization.interceptor';
 import { BackendService } from '../services/backend.service';
 @Component({
   selector: 'app-register',
@@ -10,7 +8,7 @@ import { BackendService } from '../services/backend.service';
 })
 export class RegisterComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute, private backend: BackendService, private authorizationInterceptor:AuthorizationInterceptor) { }
+  constructor(private route: ActivatedRoute, private backend: BackendService) { }
 
   ngOnInit(): void {
   }
@@ -22,8 +20,8 @@ export class RegisterComponent implements OnInit {
       password: (<HTMLInputElement>document.getElementById("register-password")).value
     }
     this.backend.register(packet).subscribe((resp:any) => {
-      console.log(resp)
-      this.authorizationInterceptor.usertoken = resp.token;
+      console.log(resp);
+      this.backend.token = resp.token;
     })
   }
 

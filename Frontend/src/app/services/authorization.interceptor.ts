@@ -6,16 +6,16 @@ import {
   HttpInterceptor
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import {BackendService} from "./backend.service";
 
 @Injectable({providedIn: "root"})
 export class AuthorizationInterceptor implements HttpInterceptor {
-  usertoken: string;
-  constructor() {this.usertoken=""}
+  constructor(private backend: BackendService) {}
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
-    if (this.usertoken){
+    if (this.backend.token){
       const modified = request.clone({
-        headers: request.headers.set("authorization",this.usertoken)
+        headers: request.headers.set("authorization", this.backend.token)
       })
       return next.handle(modified);
     }

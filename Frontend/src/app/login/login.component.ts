@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { LoginCredentials } from '../globals/types';
 import { BackendService } from '../services/backend.service';
 @Component({
   selector: 'app-login',
@@ -19,8 +18,9 @@ export class LoginComponent implements OnInit {
       email: (<HTMLInputElement>document.getElementById("login-mail")).value,
       password: (<HTMLInputElement>document.getElementById("login-pw")).value
     }
-    this.backend.login(packet).subscribe(resp => {
-      console.log(resp)
+    this.backend.login(packet).subscribe((resp: any) => {
+      console.log(resp);
+      this.backend.token = resp.token;
     })
   }
 }

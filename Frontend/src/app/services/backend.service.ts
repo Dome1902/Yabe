@@ -10,8 +10,8 @@ export class BackendService {
   server = "http://localhost:4000"
 
   //TODO Save token from login response
-  token = "beispieltoken"
-  
+  token = ""
+
   constructor(private http: HttpClient) { }
 
   login(credentials: LoginCredentials) {
