@@ -5,21 +5,12 @@ import { CreateOffersComponent } from './create-offers/create-offers.component';
 import { LoginComponent } from './login/login.component';
 import { OffersComponent } from './offers/offers.component';
 import { OwnOffersComponent } from './own-offers/own-offers.component';
-import { RegisterComponent } from './register/register.component';
 import { StartsiteComponent } from './startsite/startsite.component';
 
 export const routes: Routes = [] = [
   {
     path: 'start',
     component: StartsiteComponent
-  },
-  {
-    path: 'login',
-    component: LoginComponent
-  },
-  {
-    path: 'register',
-    component: RegisterComponent
   },
   {
     path: 'showown',
@@ -38,9 +29,9 @@ export const routes: Routes = [] = [
     component: OffersComponent
   },
   {
-    path: '**', 
-    redirectTo: 'start', 
-    pathMatch: 'full' 
+    path: '**',
+    redirectTo: 'start',
+    pathMatch: 'full'
   },
 ];
 
@@ -49,4 +40,4 @@ export const routes: Routes = [] = [
   exports: [RouterModule]
 })
 export class AppRoutingModule {}
-export const routingComponents = [ LoginComponent, RegisterComponent, OwnOffersComponent, OffersComponent]
+export const routingComponents = [ LoginComponent, OwnOffersComponent, OffersComponent]

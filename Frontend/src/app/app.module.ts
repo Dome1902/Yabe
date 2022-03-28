@@ -6,7 +6,6 @@ import { StartsiteComponent } from './startsite/startsite.component';
 import { ImprintComponent } from './imprint/imprint.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './register/register.component';
 import { OffersComponent } from './offers/offers.component';
 import { OwnOffersComponent } from './own-offers/own-offers.component';
 import { TestComponent } from './test/test.component'
@@ -36,6 +35,8 @@ import {NzInputModule} from "ng-zorro-antd/input";
 import { NzModalModule } from 'ng-zorro-antd/modal';
 import { ArticleComponent } from './article/article.component';
 import { NzCardModule } from 'ng-zorro-antd/card';
+import {NzDropDownModule} from "ng-zorro-antd/dropdown";
+import { NzAvatarModule } from 'ng-zorro-antd/avatar';
 
 registerLocaleData(de);
 
@@ -45,7 +46,6 @@ registerLocaleData(de);
     StartsiteComponent,
     ImprintComponent,
     LoginComponent,
-    RegisterComponent,
     OffersComponent,
     OwnOffersComponent,
     TestComponent,
@@ -73,7 +73,9 @@ registerLocaleData(de);
     ReactiveFormsModule,
     NzInputModule,
     NzModalModule,
-    NzCardModule
+    NzCardModule,
+    NzDropDownModule,
+    NzAvatarModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass:AuthorizationInterceptor, multi:true},

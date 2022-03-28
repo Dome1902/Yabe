@@ -2,10 +2,17 @@
   <nz-page-header-title>Yabe</nz-page-header-title>
   <nz-page-header-subtitle>Affig gut!</nz-page-header-subtitle>
   <nz-page-header-extra>
-    <button *ngIf="!backend.token" nz-button nzType="primary"(click)="openLoginModal()"><i nz-icon nzType="login"></i>Login</button>
-    <button *ngIf="backend.token" nz-button nzType="primary" (click)="logout()">Logout</button>
+    <button *ngIf="!backend.token" nz-button nzType="primary" nzSize="large" (click)="openLoginModal()"><i nz-icon nzType="login"></i>&nbsp;Login</button>
+    <button *ngIf="backend.token" nz-button nzType="primary" nzSize="large" nz-dropdown [nzDropdownMenu]="menu1" nzTrigger="click"><i nz-icon nzType="user"></i>&nbsp;Profil</button>
   </nz-page-header-extra>
 </nz-page-header>
+
+<nz-dropdown-menu #menu1="nzDropdownMenu">
+  <ul nz-menu>
+    <li nz-menu-item routerLink="/showowns"><i nz-icon nzType="bars"></i>Eigene Artikel</li>
+    <li nz-menu-item (click)="logout()"><i nz-icon nzType="logout"></i>Ausloggen</li>
+  </ul>
+</nz-dropdown-menu>
 <!--img src="assets/images/Yabe.png"/>
 
 <ul nz-menu nzMode="horizontal" nzTheme="dark" style="float: right;">

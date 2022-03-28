@@ -27,6 +27,7 @@ export class LoginComponent implements OnInit {
       this.backend.login(packet).subscribe({
         next: (resp: any) => {
           this.backend.token = resp.token;
+          this.loginService.closeLoginModal();
         },
         error: err =>  {
           console.log(err)
@@ -52,6 +53,7 @@ export class LoginComponent implements OnInit {
       this.backend.register(packet).subscribe({
         next: (resp: any) => {
           this.backend.token = resp.token;
+          this.loginService.closeLoginModal();
         },
         error: err =>  {
           console.log(err)
