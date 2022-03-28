@@ -1,43 +1,36 @@
-
-
-
 <div class="account">
   <div *ngFor="let customers of customer">
     <img src="{{ customers.customerPicture }}"/>
     <div>
       Name: {{ customers.surname}}
-    <div>
-      Nachname: {{ customers.name}}
-    <div>
-       Mitglied seit: {{ customers.membership}}
+      <div>
+        Nachname: {{ customers.name}}
+        <div>
+          Mitglied seit: {{ customers.membership}}
 
-       <div class="links">
-       <div>
-         <a routerLink="/showown" routerLinkActive="active" style="color: black;text-decoration: none"> Angebote anzeigen</a>
-       </div>
-       <div>
-         <a routerLink="/create" routerLinkActive="active" style="color: black;text-decoration: none"> Angebote erstellen</a>
-       </div>
-         <div>
-          <a routerLink ="/change" routerLinkeActive="active" style="color: black;text-decoration: none">Angebote ändern</a>
-         </div>
-        </div>
-       </div>
-    </div>
-  </div>
-</div>
-  </div>
-
-    <div class="listings"><a routerLink ="/show" routerLinkeActive="active" style="color: black;text-decoration: none">
-    <div *ngFor="let products of product">
-      <div class="listings1">
-        {{ products.name }}
-        <img src="https://cdn.pixabay.com/photo/2017/08/02/01/01/living-room-2569325_1280.jpg" />
-        <div class="info">
-          {{ products.price }}
-          <div class="counter">{{ products.counter }}</div>
+          <div class="links">
+            <div>
+              <a routerLink="/showown" routerLinkActive="active" style="color: black;text-decoration: none"> Angebote anzeigen</a>
+            </div>
+            <div>
+              <a routerLink="/create" routerLinkActive="active" style="color: black;text-decoration: none"> Angebote erstellen</a>
+            </div>
+            <div>
+              <a routerLink ="/change" routerLinkeActive="active" style="color: black;text-decoration: none">Angebote ändern</a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  </a>
   </div>
+</div>
+
+<div class="listings">
+  <a routerLink ="/show" routerLinkeActive="active" style="color: black;text-decoration: none">
+    <div nz-row [nzGutter]="[16, 16]">
+      <div nz-col *ngFor="let products of product">
+        <app-article [article]="products"></app-article>
+      </div>
+    </div>
+  </a>
+</div>

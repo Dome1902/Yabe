@@ -1,6 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { product } from '../model/product-entry';
-import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 import { BackendService } from '../services/backend.service';
 

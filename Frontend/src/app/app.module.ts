@@ -34,6 +34,8 @@ import { NzGridModule } from 'ng-zorro-antd/grid';
 import { NzFormModule } from 'ng-zorro-antd/form';
 import {NzInputModule} from "ng-zorro-antd/input";
 import { NzModalModule } from 'ng-zorro-antd/modal';
+import { ArticleComponent } from './article/article.component';
+import { NzCardModule } from 'ng-zorro-antd/card';
 
 registerLocaleData(de);
 
@@ -48,7 +50,8 @@ registerLocaleData(de);
     OwnOffersComponent,
     TestComponent,
     CreateOffersComponent,
-    HeaderComponent
+    HeaderComponent,
+    ArticleComponent
   ],
 
   imports: [
@@ -69,7 +72,8 @@ registerLocaleData(de);
     NzFormModule,
     ReactiveFormsModule,
     NzInputModule,
-    NzModalModule
+    NzModalModule,
+    NzCardModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass:AuthorizationInterceptor, multi:true},

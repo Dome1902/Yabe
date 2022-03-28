@@ -1,0 +1,9 @@
+<nz-card nzHoverable [nzCover]="coverTemplate" nzBordered style="max-width: 400px; max-height: 200px;">
+  <nz-card-meta *ngIf="article" [nzTitle]="this.article.name" [nzDescription]="description"></nz-card-meta>
+</nz-card>
+<ng-template #coverTemplate>
+  <img src="https://cdn.pixabay.com/photo/2017/08/02/01/01/living-room-2569325_1280.jpg" style="max-width: 400px; max-height: 100px" alt="Artikellogo"/>
+</ng-template>
+<ng-template #description>
+  <span *ngIf="article" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis">{{this.article.description}}</span>
+</ng-template>
