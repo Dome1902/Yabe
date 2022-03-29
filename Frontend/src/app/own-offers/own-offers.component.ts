@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ArticleService} from "../services/article.service";
-import {Article} from "../globals/types";
+import {createArticle} from "../globals/types";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {NzUploadChangeParam} from "ng-zorro-antd/upload";
 import {NzMessageService} from "ng-zorro-antd/message";
@@ -12,7 +12,7 @@ import {NzMessageService} from "ng-zorro-antd/message";
 })
 export class OwnOffersComponent implements OnInit {
 
-  products: Array<Article>
+  products: Array<createArticle>
 
   createOfferForm!: FormGroup;
 
@@ -21,7 +21,7 @@ export class OwnOffersComponent implements OnInit {
   imageb64: string;
 
   constructor(private articleService: ArticleService, private fb: FormBuilder, private msg: NzMessageService) {
-    this.products = new Array<Article>();
+    this.products = new Array<createArticle>();
     this.imageb64 = '';
   }
 
@@ -133,7 +133,7 @@ export class OwnOffersComponent implements OnInit {
   }
 
   updateProducts(): void {
-    this.products = new Array<Article>();
+    this.products = new Array<createArticle>();
     this.articleService.getUserArticle().subscribe({
       next: (resp: any) => {
         this.products = resp;

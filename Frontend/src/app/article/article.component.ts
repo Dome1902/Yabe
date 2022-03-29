@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Article} from "../globals/types";
+import {createArticle} from "../globals/types";
 
 @Component({
   selector: 'app-article',
@@ -7,7 +7,7 @@ import {Article} from "../globals/types";
   styleUrls: ['./article.component.css']
 })
 export class ArticleComponent implements OnInit {
-  @Input() article: Article | undefined;
+  @Input() article: createArticle | undefined;
 
   constructor() { }
 

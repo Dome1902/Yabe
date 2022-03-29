@@ -25,7 +25,7 @@ export const routes: Routes = [] = [
     component: ChangeOffersComponent
   },
   {
-    path: 'show',
+    path: 'show/:articleId',
     component: OffersComponent
   },
   {

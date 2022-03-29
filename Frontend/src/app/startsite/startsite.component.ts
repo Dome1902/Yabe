@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ArticleService } from '../services/article.service';
-import {Article} from "../globals/types";
+import {Article, createArticle} from "../globals/types";
 import {SearchPipe} from "../services/search.pipe";
 
 @Component({
@@ -67,6 +67,7 @@ export class StartsiteComponent implements OnInit {
     //Ruft Asynchron die Artikel aus der DB ab
     this.articleService.getArticle().subscribe({
       next: (articleResp: Array<Article>) => {
+        console.log(articleResp);
         //Setzt das Ergebnis des Datenbank aufrufs als neue Liste -> Frontend aktualisiert sich
         // von selbst, wenn wie bisher die Artikelliste auf product ausliest
         this.product = articleResp;

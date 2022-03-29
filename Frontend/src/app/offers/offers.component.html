@@ -1,1 +1,15 @@
-<p>offers works!</p>
+<nz-card *ngIf="article" style="max-width: 60vw; max-height: 600px; margin: auto">
+  <div nz-row>
+    <div nz-col nzSpan="6">
+      <div *ngIf="article">
+        <img *ngIf="article.image === ''" src="https://cdn.pixabay.com/photo/2017/08/02/01/01/living-room-2569325_1280.jpg" class="article-img" alt="Artikellogo"/>
+        <img *ngIf="article.image !== ''" [src]="this.article.image" class="article-img" alt="Artikellogo"/>
+      </div>
+    </div>
+    <div nz-col nzSpan="18" style="color: white">
+      <nz-descriptions [nzTitle]="article.name">
+        <nz-descriptions-item nzTitle="Beschreibung">{{article.description}}</nz-descriptions-item>
+      </nz-descriptions>
+    </div>
+  </div>
+</nz-card>

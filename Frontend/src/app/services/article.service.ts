@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import {Article, LoginCredentials, RegisterCredentials} from '../globals/types';
+import {Article, createArticle, LoginCredentials, RegisterCredentials} from '../globals/types';
 import {environment} from "../../environments/environment";
 import {Observable} from "rxjs";
 
@@ -12,10 +12,14 @@ export class ArticleService {
   constructor(private http: HttpClient) { }
 
   getArticle(): Observable<Array<Article>> {
-    return this.http.get<Array<Article>>(environment.backendUrl + "/articles")
+    return this.http.get<Array<Article>>(environment.backendUrl + "/articles/available")
   }
 
-  createArticle(article: Article) {
+  getArticleById(id: string): Observable<Article> {
+    return this.http.get<Article>(environment.backendUrl + "/articles/" + id)
+  }
+
+  createArticle(article: createArticle) {
     return this.http.post(environment.backendUrl + "/articles", article);
   }
 

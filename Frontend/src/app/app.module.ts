@@ -40,6 +40,7 @@ import { NzAvatarModule } from 'ng-zorro-antd/avatar';
 import { NzUploadModule } from 'ng-zorro-antd/upload';
 import { NzMessageModule } from 'ng-zorro-antd/message';
 import { SearchPipe } from './services/search.pipe';
+import { NzDescriptionsModule } from 'ng-zorro-antd/descriptions';
 
 registerLocaleData(de);
 
@@ -81,7 +82,8 @@ registerLocaleData(de);
     NzDropDownModule,
     NzAvatarModule,
     NzUploadModule,
-    NzMessageModule
+    NzMessageModule,
+    NzDescriptionsModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass:AuthorizationInterceptor, multi:true},
