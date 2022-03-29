@@ -151,4 +151,24 @@ export class OwnOffersComponent implements OnInit {
       description: [null, [Validators.required]]
     });
   }
+
+  deleteProduct(): void {
+    this.articleService.getUserArticle().subscribe({
+      next: (resp: any) => {
+        this.products = resp;
+      },
+      error: (err) => {
+        console.log(err);
+      }
+    });
+  }
+
+  updateProduct(): void {
+    this.updateProducts();
+    this.createOfferForm = this.fb.group({
+      name: [null, [Validators.required]],
+      description: [null, [Validators.required]]
+    });
+  }
+
 }
