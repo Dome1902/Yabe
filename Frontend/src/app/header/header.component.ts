@@ -3,6 +3,7 @@ import {ArticleService} from "../services/article.service";
 import {NzModalService} from "ng-zorro-antd/modal";
 import {LoginComponent} from "../login/login.component";
 import {LoginService} from "../services/login.service";
+import {SearchPipe} from "../services/search.pipe";
 
 @Component({
   selector: 'app-header',
@@ -11,7 +12,7 @@ import {LoginService} from "../services/login.service";
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(public loginService: LoginService) {}
+  constructor(public loginService: LoginService, public searchPipe: SearchPipe) {}
 
   logout(): void {
     this.loginService.token = "";

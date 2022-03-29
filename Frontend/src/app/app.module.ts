@@ -39,6 +39,7 @@ import {NzDropDownModule} from "ng-zorro-antd/dropdown";
 import { NzAvatarModule } from 'ng-zorro-antd/avatar';
 import { NzUploadModule } from 'ng-zorro-antd/upload';
 import { NzMessageModule } from 'ng-zorro-antd/message';
+import { SearchPipe } from './services/search.pipe';
 
 registerLocaleData(de);
 
@@ -53,7 +54,8 @@ registerLocaleData(de);
     TestComponent,
     CreateOffersComponent,
     HeaderComponent,
-    ArticleComponent
+    ArticleComponent,
+    SearchPipe
   ],
 
   imports: [
@@ -83,6 +85,7 @@ registerLocaleData(de);
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass:AuthorizationInterceptor, multi:true},
+    {provide: SearchPipe, useClass: SearchPipe},
     { provide: NZ_I18N, useValue: de_DE }
   ],
   bootstrap: [AppComponent]

@@ -1,4 +1,4 @@
-<nz-card nzHoverable [nzCover]="coverTemplate" nzBordered style="height: 300px;">
+<nz-card nzHoverable [nzCover]="coverTemplate" nzBordered style="height: 300px; min-width: 150px">
   <nz-card-meta *ngIf="article" [nzTitle]="this.article.name" [nzDescription]="description"></nz-card-meta>
 </nz-card>
 <ng-template #coverTemplate>

@@ -1,6 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ArticleService } from '../services/article.service';
+import {Article} from "../globals/types";
+import {SearchPipe} from "../services/search.pipe";
 
 @Component({
   selector: 'app-startsite',
@@ -8,11 +10,13 @@ import { ArticleService } from '../services/article.service';
   styleUrls: ['./startsite.component.css'],
 })
 export class StartsiteComponent implements OnInit {
-  product: any[];
+  product: Array<Article>;
+  searchValue: string;
   customer: any[];
   constructor(
     private router: Router,
-    private articleService: ArticleService
+    private articleService: ArticleService,
+    public searchPipe: SearchPipe
   ) {
     /*this.product = [
       {
@@ -59,12 +63,14 @@ export class StartsiteComponent implements OnInit {
       },
     ];*/
     this.product = [];
+    this.searchValue = '';
     //Ruft Asynchron die Artikel aus der DB ab
-    this.articleService.getArticle().subscribe(articleResp => {
-
-      //Setzt das Ergebnis des Datenbank aufrufs als neue Liste -> Frontend aktualisiert sich
-      // von selbst, wenn wie bisher die Artikelliste auf product ausliest
-      this.product = <any[]>articleResp;
+    this.articleService.getArticle().subscribe({
+      next: (articleResp: Array<Article>) => {
+        //Setzt das Ergebnis des Datenbank aufrufs als neue Liste -> Frontend aktualisiert sich
+        // von selbst, wenn wie bisher die Artikelliste auf product ausliest
+        this.product = articleResp;
+      }
     })
 
     this.customer = [
@@ -75,9 +81,6 @@ export class StartsiteComponent implements OnInit {
       membership:'19.02.2000',
       }
     ]
-  }
-  navigateTo(value:any) {
-    this.router.navigate(['../', value]);
   }
 
   ngOnInit(): void {}
