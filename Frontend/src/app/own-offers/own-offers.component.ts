@@ -230,6 +230,17 @@ export class OwnOffersComponent implements OnInit {
     return false;
   }
 
+  deleteArticle(article: Article) {
+    this.articleService.deleteArticle(article).subscribe({
+      next: (resp: any) => {
+        this.updateProducts();
+      },
+      error: err => {
+        this.msg.error('Das Löschen des Artikels ' + article.name + ' hat leider nicht geklappt. Bitte versuchen Sie es später erneut');
+      }
+    });
+  }
+
   updateProducts(): void {
     this.productsLoaded = false;
     this.products = new Array<Article>();

@@ -9,7 +9,14 @@
       <a [routerLink]="['/show', product._id]" style="color: black;text-decoration: none">
         <app-article [article]="product"></app-article>
       </a>
-      <button *ngIf="product.biddingEnabled" nz-button nzType="primary" style="width: 100%" (click)="openEditModal(product)"><i nz-icon nzType="edit">Bearbeiten</i></button>
+      <div *ngIf="product.biddingEnabled">
+        <button nz-button nzType="primary" style="width: 50%" (click)="openEditModal(product)"><i nz-icon nzType="edit"></i>Bearbeiten</button>
+        <button nz-button nzType="primary" style="width: 50%" nzDanger
+                nz-popconfirm
+                nzPopconfirmTitle="Wollen Sie den Artikel wirklich löschen?"
+                nzOkType="danger" (nzOnConfirm)="deleteArticle(product)"
+        ><i nz-icon nzType="delete"></i>Löschen</button>
+      </div>
     </div>
   </div>
 </div>
@@ -73,9 +80,9 @@
         </p>
         <p class="ant-upload-text">Klicken oder Datei in diesen Bereich ziehen</p>
         </nz-upload-->
-        <input type="file" (change)="fileChangeEvent($event)">
+        <input type="file" (change)="fileChangeEventEditedArticle($event)">
       </nz-form-item>
-      <button nz-button class="login-form-button login-form-margin" nzType="primary" style="width: 100%">Hochladen</button>
+      <button nz-button class="login-form-button login-form-margin" nzType="primary" style="width: 100%"><i nz-icon nzType="upload"></i>Änderung speichern</button>
     </form>
   </ng-container>
 </nz-modal>

@@ -44,7 +44,9 @@ import { NzDescriptionsModule } from 'ng-zorro-antd/descriptions';
 import { NzInputNumberModule } from 'ng-zorro-antd/input-number';
 import { NzTagModule } from 'ng-zorro-antd/tag';
 import { LoadingComponent } from './loading/loading.component'
-import {CookieModule, CookieOptionsProvider, CookieService} from "ngx-cookie";
+import {CookieModule} from "ngx-cookie";
+import { NzPopconfirmModule } from 'ng-zorro-antd/popconfirm';
+import {NzSpinModule} from "ng-zorro-antd/spin";
 
 registerLocaleData(de);
 
@@ -91,7 +93,9 @@ registerLocaleData(de);
     NzMessageModule,
     NzDescriptionsModule,
     NzInputNumberModule,
-    NzTagModule
+    NzTagModule,
+    NzPopconfirmModule,
+    NzSpinModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass:AuthorizationInterceptor, multi:true},

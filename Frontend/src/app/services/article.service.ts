@@ -30,4 +30,8 @@ export class ArticleService {
   getUserArticle(): Observable<Array<Article>> {
     return this.http.get<Array<Article>>(environment.backendUrl + "/articles/user");
   }
+
+  deleteArticle(article: Article) {
+    return this.http.delete(environment.backendUrl + "/articles/" + article._id);
+  }
 }
