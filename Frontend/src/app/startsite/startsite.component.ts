@@ -11,6 +11,7 @@ import {SearchPipe} from "../services/search.pipe";
 })
 export class StartsiteComponent implements OnInit {
   product: Array<Article>;
+  productLoaded: boolean;
   searchValue: string;
   customer: any[];
   constructor(
@@ -18,50 +19,7 @@ export class StartsiteComponent implements OnInit {
     private articleService: ArticleService,
     public searchPipe: SearchPipe
   ) {
-    /*this.product = [
-      {
-        title: 'hello',
-        price: '6,70€',
-        counter: '5.00',
-        picture:
-          'https://cdn.pixabay.com/photo/2017/08/02/01/01/living-room-2569325_1280.jpg',
-      },
-      {
-        title: 'tag',
-        price: '5,50€',
-        counter: '15.00',
-        picture:
-          'https://cdn.pixabay.com/photo/2017/08/02/01/01/living-room-2569325_1280.jpg',
-      },
-      {
-        title: 'Moderne Couch',
-        price: '5.50€',
-        counter: '5.00',
-        picture:
-          'https://cdn.pixabay.com/photo/2017/08/02/01/01/living-room-2569325_1280.jpg',
-      },
-      {
-        title: 'Moderne Couch',
-        price: '5.50€',
-        counter: '5.00',
-        picture:
-          'https://cdn.pixabay.com/photo/2017/08/02/01/01/living-room-2569325_1280.jpg',
-      },
-      {
-        title: 'Moderne Couch',
-        price:'5.50€ ',
-        counter: '5.00',
-        picture:
-          'https://cdn.pixabay.com/photo/2017/08/02/01/01/living-room-2569325_1280.jpg',
-      },
-      {
-        title: 'Moderne Couch',
-        price: '5.50€',
-        counter: '5.00',
-        picture:
-          'https://cdn.pixabay.com/photo/2017/08/02/01/01/living-room-2569325_1280.jpg',
-      },
-    ];*/
+    this.productLoaded = false;
     this.product = [];
     this.searchValue = '';
     //Ruft Asynchron die Artikel aus der DB ab
@@ -71,6 +29,11 @@ export class StartsiteComponent implements OnInit {
         //Setzt das Ergebnis des Datenbank aufrufs als neue Liste -> Frontend aktualisiert sich
         // von selbst, wenn wie bisher die Artikelliste auf product ausliest
         this.product = articleResp;
+        this.productLoaded = true;
+      },
+      error: err => {
+        console.log(err);
+        this.productLoaded = true;
       }
     })
 

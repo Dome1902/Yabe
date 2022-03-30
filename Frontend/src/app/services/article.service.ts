@@ -16,14 +16,14 @@ export class ArticleService {
   }
 
   getArticleById(id: string): Observable<Article> {
-    return this.http.get<Article>(environment.backendUrl + "/articles/" + id)
+    return this.http.get<Article>(environment.backendUrl + "/articles/" + id);
   }
 
   createArticle(article: createArticle) {
     return this.http.post(environment.backendUrl + "/articles", article);
   }
 
-  getUserArticle() {
-    return this.http.get(environment.backendUrl + "/articles/user");
+  getUserArticle(): Observable<Array<Article>> {
+    return this.http.get<Array<Article>>(environment.backendUrl + "/articles/user");
   }
 }

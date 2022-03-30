@@ -7,8 +7,16 @@
       </div>
     </div>
     <div nz-col nzSpan="18" style="color: white">
-      <nz-descriptions [nzTitle]="article.name">
+      <nz-descriptions [nzTitle]="article.name" [nzColumn]="1">
         <nz-descriptions-item nzTitle="Beschreibung">{{article.description}}</nz-descriptions-item>
+        <nz-descriptions-item nzTitle="Höchstes Gebot">
+          <p *ngIf="this.maxBid === 0" nz-typography>Noch keine Gebote</p>
+          <p *ngIf="this.maxBid !== 0" nz-typography>{{this.maxBid | currency: 'EUR'}}</p>
+        </nz-descriptions-item>
+        <nz-descriptions-item nzTitle="Betrag" *ngIf="article.biddingEnabled">
+          <input nz-input [(ngModel)]="this.newBid" nzSize="small" type="number" style="max-width: 15%" [min]="this.maxBid + 1"/>
+          <button style="float: right; margin-left: 12px" nz-button nzType="primary" nzSize="small" (click)="makeBid()"><i nz-icon nzType="euro"></i>Bieten</button>
+        </nz-descriptions-item>
       </nz-descriptions>
     </div>
   </div>

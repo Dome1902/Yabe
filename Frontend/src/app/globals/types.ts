@@ -1,3 +1,5 @@
+import {DateSelectionModelChange} from "@angular/material/datepicker";
+
 export interface LoginCredentials {
     email: string;
     password: string;
@@ -26,5 +28,34 @@ export interface Article {
    * user id
    */
   user: string;
+  _id: string;
+}
+
+export interface makeBid {
+  /**
+   * article id
+   */
+  article: string;
+
+  price: number;
+}
+
+export interface Bid {
+  /**
+   * article id
+   */
+  article: string;
+  complete: boolean;
+  createdAt: Date;
+  price: number;
+  status: string;
+  updatedAt: Date;
+  /**
+   * user id
+   */
+  user: string;
+  /**
+   * bid id
+   */
   _id: string;
 }

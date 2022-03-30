@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ArticleService} from "../services/article.service";
-import {createArticle} from "../globals/types";
+import {Article, createArticle} from "../globals/types";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {NzUploadChangeParam} from "ng-zorro-antd/upload";
 import {NzMessageService} from "ng-zorro-antd/message";
@@ -12,7 +12,9 @@ import {NzMessageService} from "ng-zorro-antd/message";
 })
 export class OwnOffersComponent implements OnInit {
 
-  products: Array<createArticle>
+  products: Array<Article>
+
+  productsLoaded: boolean;
 
   createOfferForm!: FormGroup;
 
@@ -21,7 +23,8 @@ export class OwnOffersComponent implements OnInit {
   imageb64: string;
 
   constructor(private articleService: ArticleService, private fb: FormBuilder, private msg: NzMessageService) {
-    this.products = new Array<createArticle>();
+    this.products = new Array<Article>();
+    this.productsLoaded = false;
     this.imageb64 = '';
   }
 
@@ -133,13 +136,20 @@ export class OwnOffersComponent implements OnInit {
   }
 
   updateProducts(): void {
-    this.products = new Array<createArticle>();
+    this.productsLoaded = false;
+    this.products = new Array<Article>();
     this.articleService.getUserArticle().subscribe({
-      next: (resp: any) => {
+      next: (resp: Array<Article>) => {
         this.products = resp;
+        this.productsLoaded = true;
       },
       error: (err) => {
-        console.log(err);
+        if (err.status === 401) {
+          this.msg.error('Bitte melde dich mit einem berechtigten Account an, um deine Angebote zu sehen.');
+        } else {
+          this.msg.error('Die Abfrage hat leider nicht geklappt. Bitte versuchen Sie es später erneut');
+        }
+        this.productsLoaded = true;
       }
     });
   }

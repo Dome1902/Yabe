@@ -3,6 +3,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 import { ArticleService } from '../services/article.service';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {LoginService} from "../services/login.service";
+import {NzMessageService} from "ng-zorro-antd/message";
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -16,7 +17,7 @@ export class LoginComponent implements OnInit {
 
   isLogin: boolean = true;
 
-  constructor(private fb: FormBuilder, public loginService: LoginService) {}
+  constructor(private fb: FormBuilder, public loginService: LoginService, private msg: NzMessageService) {}
 
   submitLogin(): void {
     if (this.loginForm.valid) {
@@ -52,8 +53,13 @@ export class LoginComponent implements OnInit {
       }
       this.loginService.register(packet).subscribe({
         next: (resp: any) => {
-          this.loginService.token = resp.token;
-          this.loginService.closeLoginModal();
+          console.log(resp);
+          if (resp.error) {
+            this.msg.error(resp.message);
+          } else {
+            this.loginService.token = resp.token;
+            this.loginService.closeLoginModal();
+          }
         },
         error: err =>  {
           console.log(err)

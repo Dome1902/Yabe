@@ -41,6 +41,9 @@ import { NzUploadModule } from 'ng-zorro-antd/upload';
 import { NzMessageModule } from 'ng-zorro-antd/message';
 import { SearchPipe } from './services/search.pipe';
 import { NzDescriptionsModule } from 'ng-zorro-antd/descriptions';
+import { NzInputNumberModule } from 'ng-zorro-antd/input-number';
+import { NzTagModule } from 'ng-zorro-antd/tag';
+import { LoadingComponent } from './loading/loading.component'
 
 registerLocaleData(de);
 
@@ -56,7 +59,8 @@ registerLocaleData(de);
     CreateOffersComponent,
     HeaderComponent,
     ArticleComponent,
-    SearchPipe
+    SearchPipe,
+    LoadingComponent
   ],
 
   imports: [
@@ -83,7 +87,9 @@ registerLocaleData(de);
     NzAvatarModule,
     NzUploadModule,
     NzMessageModule,
-    NzDescriptionsModule
+    NzDescriptionsModule,
+    NzInputNumberModule,
+    NzTagModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass:AuthorizationInterceptor, multi:true},
