@@ -90,10 +90,10 @@ const createArticle = async (req, res) => {
 const updateArticle = async (req, res) => {
   try {
     const { id } = req.params
-    const { name, description, image, isSold, biddingEnabled } = req.body
-    const articleInfo = { name, description, image, isSold, biddingEnabled }
+    const { name, description, image } = req.body
+    const articleInfo = { name, description, image }
 
-    if (!name || !description || !image || !isSold || !biddingEnabled) {
+    if (!name || !description || !image) {
       return res.status(StatusCodes.OK).json({ message: 'Missing required fields', error: true })
     }
 

@@ -23,6 +23,10 @@ export class ArticleService {
     return this.http.post(environment.backendUrl + "/articles", article);
   }
 
+  editArticle(article: Article) {
+    return this.http.put(environment.backendUrl + '/articles/' + article._id, article);
+  }
+
   getUserArticle(): Observable<Array<Article>> {
     return this.http.get<Array<Article>>(environment.backendUrl + "/articles/user");
   }

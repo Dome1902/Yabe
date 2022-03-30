@@ -8,7 +8,6 @@ import {createArticle, Article} from "../globals/types";
 })
 export class ArticleComponent implements OnInit {
   @Input() article: Article | undefined;
-  @Input() editable: boolean = false;
 
   constructor() { }
 

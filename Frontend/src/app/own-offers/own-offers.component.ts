@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ArticleService} from "../services/article.service";
-import {Article, createArticle} from "../globals/types";
+import {Article} from "../globals/types";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {NzUploadChangeParam} from "ng-zorro-antd/upload";
 import {NzMessageService} from "ng-zorro-antd/message";
@@ -18,14 +18,23 @@ export class OwnOffersComponent implements OnInit {
 
   createOfferForm!: FormGroup;
 
-  modalVisible: boolean = false;
+  editArticleForm!: FormGroup;
+
+  createModalVisible: boolean = false;
+
+  editModalVisible: boolean = false;
+
+  articleToEdit: Article = <Article>{};
 
   imageb64: string;
+
+  newImageb64: string;
 
   constructor(private articleService: ArticleService, private fb: FormBuilder, private msg: NzMessageService) {
     this.products = new Array<Article>();
     this.productsLoaded = false;
     this.imageb64 = '';
+    this.newImageb64 = '';
   }
 
   submitNewOffer(): void {
@@ -41,7 +50,7 @@ export class OwnOffersComponent implements OnInit {
         console.log(offer);
         this.articleService.createArticle(offer).subscribe({
           next: (resp: any) => {
-            this.modalVisible = false;
+            this.createModalVisible = false;
             this.updateProducts();
           },
           error: err =>  {
@@ -56,6 +65,36 @@ export class OwnOffersComponent implements OnInit {
       }
     } else {
       Object.values(this.createOfferForm.controls).forEach(control => {
+        if (control.invalid) {
+          control.markAsDirty();
+          control.updateValueAndValidity({ onlySelf: true });
+        }
+      });
+    }
+  }
+
+  submitEditedArticle(): void {
+    if (this.editArticleForm.valid) {
+      if (this.newImageb64 !== '') {
+        this.articleToEdit.image = this.newImageb64;
+      }
+      console.log(this.articleToEdit);
+      this.articleService.editArticle(this.articleToEdit).subscribe({
+        next: (resp: any) => {
+          this.editModalVisible = false;
+          this.updateProducts();
+        },
+        error: err =>  {
+          console.log(err);
+          if (err.status === 401) {
+            this.msg.error('Für das Hochladen eines Angebots müssen Sie angemeldet sein. Bitte prüfen Sie ihren Status');
+          } else if (err.status === 413) {
+            this.msg.error('Das erstellen des Angebots hat leider nicht geklappt. Bitte probieren Sie es noch einmal mit einem sehr kleinen Bild')
+          }
+        }
+      });
+    } else {
+      Object.values(this.editArticleForm.controls).forEach(control => {
         if (control.invalid) {
           control.markAsDirty();
           control.updateValueAndValidity({ onlySelf: true });
@@ -80,12 +119,23 @@ export class OwnOffersComponent implements OnInit {
     }
   }
 
-  handleCancel(): void {
-    this.modalVisible = false;
+  handleCancelCreate(): void {
+    this.createModalVisible = false;
   }
 
-  openModal(): void {
-    this.modalVisible = true;
+  openCreateModal(): void {
+    this.createModalVisible = true;
+    this.imageb64 = '';
+  }
+
+  handleCancelEdit(): void {
+    this.editModalVisible = false;
+  }
+
+  openEditModal(article: Article): void {
+    this.editModalVisible = true;
+    this.articleToEdit = article;
+    this.newImageb64 = '';
   }
 
   fileChangeEvent(fileInput: any) {
@@ -122,8 +172,53 @@ export class OwnOffersComponent implements OnInit {
             this.msg.error('Maximum dimentions allowed ' + max_height + '*' + max_width + 'px');
             return false;
           } else {
-            const imgBase64Path = e.target.result;
-            this.imageb64 = imgBase64Path;
+            this.imageb64 = e.target.result;
+            this.msg.success("Bild hochgeladen")
+            // this.previewImagePath = imgBase64Path;
+            return true;
+          }
+        };
+      };
+      reader.readAsDataURL(fileInput.target.files[0]);
+    }
+    return false;
+  }
+
+  fileChangeEventEditedArticle(fileInput: any) {
+    if (fileInput.target.files && fileInput.target.files[0]) {
+      // Size Filter Bytes
+      const max_size = 20971520;
+      const allowed_types = ['image/png', 'image/jpeg'];
+      const max_height = 15200;
+      const max_width = 25600;
+
+      if (fileInput.target.files[0].size > max_size) {
+        this.msg.error('Maximum size allowed is ' + max_size / 1000 + 'Mb');
+        return false;
+      }
+
+      if (allowed_types.indexOf(fileInput.target.files[0].type) < 0) {
+        this.msg.error('Only Images are allowed ( JPG | PNG )');
+        return false;
+      }
+      const reader = new FileReader();
+      reader.onload = (e: any) => {
+        const image = new Image();
+        image.src = e.target.result;
+        image.onload = rs => {
+          // @ts-ignore
+          const img_height = rs.currentTarget['height'];
+          // @ts-ignore
+          const img_width = rs.currentTarget['width'];
+
+          console.log(img_height, img_width);
+
+
+          if (img_height > max_height && img_width > max_width) {
+            this.msg.error('Maximum dimentions allowed ' + max_height + '*' + max_width + 'px');
+            return false;
+          } else {
+            this.newImageb64 = e.target.result;
             this.msg.success("Bild hochgeladen")
             // this.previewImagePath = imgBase64Path;
             return true;
@@ -157,6 +252,11 @@ export class OwnOffersComponent implements OnInit {
   ngOnInit(): void {
     this.updateProducts();
     this.createOfferForm = this.fb.group({
+      name: [null, [Validators.required]],
+      description: [null, [Validators.required]]
+    });
+
+    this.editArticleForm = this.fb.group({
       name: [null, [Validators.required]],
       description: [null, [Validators.required]]
     });
