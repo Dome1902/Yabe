@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {LoginCredentials, RegisterCredentials} from "../globals/types";
 import {environment} from "../../environments/environment";
 import {HttpClient} from "@angular/common/http";
+import {CookieService} from "ngx-cookie";
 
 @Injectable({
   providedIn: 'root'
@@ -9,10 +10,14 @@ import {HttpClient} from "@angular/common/http";
 export class LoginService {
 
   loginVisible: boolean | undefined;
+  loggedIn: boolean = false;
 
-  token = ""
-
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private cookieService: CookieService) {
+    const token = cookieService.get('yabe-auth');
+    if (token) {
+      this.loggedIn = true;
+    }
+  }
 
   closeLoginModal(): void {
     this.loginVisible = false;

@@ -11,6 +11,7 @@
   <div *ngIf="article">
     <span style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis">{{this.article.description}}</span>
     <nz-tag *ngIf="!article.biddingEnabled" nzColor="error" style="float: right; margin-right: 12px">Abgelaufen</nz-tag>
+    <button *ngIf="article.biddingEnabled && !article.isSold && this.editable" style="float: right; margin-right: 12px" nz-button nzType="default" nzSize="small"><i nz-icon nzType="edit"></i>Bearbeiten</button>
   </div>
 
 </ng-template>

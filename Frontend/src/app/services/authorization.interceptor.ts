@@ -7,15 +7,17 @@ import {
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import {LoginService} from "./login.service";
+import {CookieService} from "ngx-cookie";
 
 @Injectable({providedIn: "root"})
 export class AuthorizationInterceptor implements HttpInterceptor {
-  constructor(private loginService: LoginService) {}
+  constructor(private loginService: LoginService, private cookieService: CookieService) {}
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
-    if (this.loginService.token){
+    const userToken = this.cookieService.get('yabe-auth');
+    if (userToken){
       const modified = request.clone({
-        headers: request.headers.set("authorization", this.loginService.token)
+        headers: request.headers.set("authorization", userToken)
       })
       return next.handle(modified);
     }

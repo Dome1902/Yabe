@@ -4,6 +4,7 @@ import { ArticleService } from '../services/article.service';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {LoginService} from "../services/login.service";
 import {NzMessageService} from "ng-zorro-antd/message";
+import {CookieService} from "ngx-cookie";
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -17,7 +18,7 @@ export class LoginComponent implements OnInit {
 
   isLogin: boolean = true;
 
-  constructor(private fb: FormBuilder, public loginService: LoginService, private msg: NzMessageService) {}
+  constructor(private fb: FormBuilder, public loginService: LoginService, private msg: NzMessageService, private cookieService: CookieService) {}
 
   submitLogin(): void {
     if (this.loginForm.valid) {
@@ -27,7 +28,8 @@ export class LoginComponent implements OnInit {
       }
       this.loginService.login(packet).subscribe({
         next: (resp: any) => {
-          this.loginService.token = resp.token;
+          this.cookieService.put('yabe-auth', resp.token);
+          this.loginService.loggedIn = true;
           this.loginService.closeLoginModal();
         },
         error: err =>  {
@@ -57,7 +59,8 @@ export class LoginComponent implements OnInit {
           if (resp.error) {
             this.msg.error(resp.message);
           } else {
-            this.loginService.token = resp.token;
+            this.cookieService.put('yabe-auth', resp.token);
+            this.loginService.loggedIn = true;
             this.loginService.closeLoginModal();
           }
         },

@@ -44,6 +44,7 @@ import { NzDescriptionsModule } from 'ng-zorro-antd/descriptions';
 import { NzInputNumberModule } from 'ng-zorro-antd/input-number';
 import { NzTagModule } from 'ng-zorro-antd/tag';
 import { LoadingComponent } from './loading/loading.component'
+import {CookieModule, CookieOptionsProvider, CookieService} from "ngx-cookie";
 
 registerLocaleData(de);
 
@@ -65,6 +66,7 @@ registerLocaleData(de);
 
   imports: [
     BrowserModule,
+    CookieModule.forRoot(),
     AppRoutingModule,
     HttpClientModule,
     RouterModule,
