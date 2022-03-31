@@ -36,24 +36,6 @@ const getAvailableArticles = async (req, res) => {
   }
 }
 
-// search for article
-const searchArticle = async (req, res) => {
-  try {
-    const { q } = req.query
-
-    console.log(q)
-
-    if (!q) return res.status(StatusCodes.OK).json([])
-
-    const articles = await Article.find({ $text: { $search: q } })
-
-    res.status(StatusCodes.OK).json(articles)
-  } catch (error) {
-    console.log(error)
-    res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({ msg: 'Server error!' })
-  }
-}
-
 // get artile by id
 const getArticle = async (req, res) => {
   try {
@@ -132,7 +114,6 @@ module.exports = {
   getArticles,
   getUserArticle,
   getAvailableArticles,
-  searchArticle,
   getArticle,
   createArticle,
   updateArticle,

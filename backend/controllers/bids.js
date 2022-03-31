@@ -14,18 +14,6 @@ const getArticleBids = async (req, res) => {
   }
 }
 
-// get all bids made by a user
-const getUserBids = async (req, res) => {
-  try {
-    const { id } = req.params
-    const bids = await Bid.find({ user: id })
-
-    res.status(StatusCodes.OK).json(bids)
-  } catch (error) {
-    res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({ msg: 'Server error!' })
-  }
-}
-
 // make new bid
 const makeBid = async (req, res) => {
   try {
@@ -51,7 +39,7 @@ const makeBid = async (req, res) => {
     const newBid = await Bid.create(bidInfo)
 
     res.status(StatusCodes.OK).json({
-      message: 'You bid was recorded',
+      message: 'Your bid was recorded',
       article: newBid.article,
       user: newBid.user,
       price: newBid.price
@@ -61,4 +49,4 @@ const makeBid = async (req, res) => {
   }
 }
 
-module.exports = { getArticleBids, getUserBids, makeBid }
+module.exports = { getArticleBids, makeBid }

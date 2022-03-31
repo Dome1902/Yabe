@@ -12,7 +12,6 @@ const swaggerDocument = require('./swagger.json');
 const usersRoutes = require('./routes/users')
 const articlesRoutes = require('./routes/articles')
 const bidsRoutes = require('./routes/bids')
-const uploadsRoutes = require('./routes/uploads')
 
 // article update cron job
 const initUpdateArticleStatusCron = require('./lib/cron')
@@ -37,7 +36,6 @@ app.use('/api/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument))
 app.use('/users', usersRoutes)
 app.use('/articles', articlesRoutes)
 app.use('/bids', bidsRoutes)
-app.use('/uploads', uploadsRoutes)
 
 // catch not found routes
 app.get('*', (req, res) => res.status(404).json({ message: 'Resource Not Found' }))

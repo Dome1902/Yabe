@@ -2,8 +2,6 @@ require('dotenv').config()
 const { Seeder } = require('mongo-seeding')
 const path = require('path')
 
-const collectionsPath = path.resolve('./seeds/data')
-
 const config = {
   database: process.env.DB_CONNECTION,
   dropDatabase: false

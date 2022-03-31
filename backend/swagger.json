@@ -1,13 +1,13 @@
 {
     "openapi": "3.0.1",
     "info": {
-        "title": "Auction API",
+        "title": "YABE API",
         "description": "This is an API to manage online auction. Users can add articles and bid on them.",
         "version": "1.0.0"
     },
     "servers": [
         {
-            "url": "https://auction-api-dev.herokuapp.com"
+            "url": "localhost:4000"
         }
     ],
     "tags": [
@@ -21,9 +21,6 @@
         },
         {
             "name": "bid"
-        },
-        {
-            "name": "upload"
         }
     ],
     "paths": {
@@ -338,41 +335,6 @@
                 ]
             }
         },
-        "/articles/search": {
-            "get": {
-                "tags": [
-                    "article"
-                ],
-                "summary": "Get articles of a given user",
-                "parameters": [
-                    {
-                        "in": "query",
-                        "name": "q",
-                        "schema": {
-                            "type": "string"
-                        },
-                        "description": "The search term used to search for articles"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "successful operation",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ApiResponse"
-                                }
-                            }
-                        }
-                    }
-                },
-                "security": [
-                    {
-                        "bearerAuth": []
-                    }
-                ]
-            }
-        },
         "/bids/user/{id}": {
             "get": {
                 "tags": [
@@ -480,51 +442,7 @@
                     }
                 ]
             }
-        },
-        "/uploads": {
-            "post": {
-                "tags": [
-                    "upload"
-                ],
-                "summary": "Upload article image",
-                "requestBody": {
-                    "description": "The image file to upload. One of type gpeg, jpg, png or gif",
-                    "content": {
-                        "multipart/form-data": {
-                            "schema": {
-                                "required": [
-                                    "article_image"
-                                ],
-                                "type": "object",
-                                "properties": {
-                                    "article_image": {
-                                        "type": "string",
-                                        "format": "binary"
-                                    }
-                                }
-                            }
-                        }
-                    }
-                },
-                "responses": {
-                    "200": {
-                        "description": "successful operation",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/UploadResponse"
-                                }
-                            }
-                        }
-                    }
-                },
-                "security": [
-                    {
-                        "bearerAuth": []
-                    }
-                ]
-            }
-        }
+        }     
     },
     "components": {
         "schemas": {
@@ -640,17 +558,6 @@
                         "type": "string"
                     },
                     "token": {
-                        "type": "string"
-                    }
-                }
-            },
-            "UploadResponse": {
-                "type": "object",
-                "properties": {
-                    "path": {
-                        "type": "string"
-                    },
-                    "filename": {
                         "type": "string"
                     }
                 }

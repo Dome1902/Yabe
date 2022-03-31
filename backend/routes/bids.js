@@ -4,9 +4,6 @@ const ensureAuth = require('../middleware/ensureAuth')
 
 const router = Router().use(ensureAuth)
 
-// get user bids
-router.get('/user/:id', controller.getUserBids)
-
 // get article bids
 router.get('/article/:id', controller.getArticleBids)
 

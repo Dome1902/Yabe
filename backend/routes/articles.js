@@ -18,9 +18,6 @@ router.get('/user', ensureAuth, controller.getUserArticle)
 // get article available for bidding
 router.get('/available', controller.getAvailableArticles)
 
-// search articles
-router.get('/search', controller.searchArticle)
-
 // get article y id
 router.get('/:id', controller.getArticle)
 
