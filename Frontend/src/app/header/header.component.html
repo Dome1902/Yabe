@@ -1,6 +1,5 @@
 <nz-page-header>
   <nz-page-header-title routerLink="/" routerLinkActive="active" style="cursor: pointer">Yabe</nz-page-header-title>
-  <nz-page-header-subtitle>Affig gut!</nz-page-header-subtitle>
   <nz-page-header-extra>
     <button *ngIf="!loginService.loggedIn" nz-button nzType="primary" nzSize="large" (click)="openLoginModal()"><i nz-icon nzType="login"></i>&nbsp;Login</button>
     <button *ngIf="loginService.loggedIn" nz-button nzType="primary" nzSize="large" nz-dropdown [nzDropdownMenu]="menu1" nzTrigger="click"><i nz-icon nzType="user"></i>&nbsp;Profil</button>
@@ -13,10 +12,4 @@
     <li nz-menu-item (click)="logout()"><i nz-icon nzType="logout"></i>Ausloggen</li>
   </ul>
 </nz-dropdown-menu>
-<!--img src="assets/images/Yabe.png"/>
 
-<ul nz-menu nzMode="horizontal" nzTheme="dark" style="float: right;">
-  <li nz-menu-item routerLink="/login" *ngIf="!backend.token" routerLinkActive="active">Einloggen</li>
-  <li nz-menu-item routerLink="/register" *ngIf="!backend.token" routerLinkActive="active">Registrieren</li>
-  <li nz-menu-item *ngIf="backend.token" (click)="logout()"></li>
-</ul-->
