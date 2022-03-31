@@ -1,0 +1,17 @@
+[
+    {
+        "username": "Manfred",
+        "email": "Manfred@manny.de",
+        "password": "$2a$10$7i7KrPlqWvgUT2VZfy8o1eu4RmxUayTg97KP/ZqNtZA2Fd2lS7lN."
+    },
+    {
+        "username": "Bernd",
+        "email": "Bernd@bernd.de",
+        "password": "$2a$10$7i7KrPlqWvgUT2VZfy8o1eu4RmxUayTg97KP/ZqNtZA2Fd2lS7lN."
+    },
+    {
+        "username": "Steffi",
+        "email": "Steffi@steffi.de",
+        "password": "$2a$10$7i7KrPlqWvgUT2VZfy8o1eu4RmxUayTg97KP/ZqNtZA2Fd2lS7lN."
+    }
+]

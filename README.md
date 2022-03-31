@@ -2,7 +2,7 @@
 
 ### Voraussetzungen:
 
-MongoDB Version 5.0.6   Fügen Sie in der .env Datei ihren MongoDB connection string ein (DB_CONNECTION="Hier String einfügen") 
+MongoDB Version 5.0.6   Fügen Sie gegebenenfalls in der .env Datei ihren MongoDB connection string ein
 Node.js Version 16.13.0
 
 ### Starten der Anwendung:

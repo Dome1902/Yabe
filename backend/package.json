@@ -1,7 +1,7 @@
 {
-  "name": "auction-api",
+  "name": "yabe-api",
   "version": "1.0.0",
-  "description": "Auction management API",
+  "description": "This is an API to manage online auction. Users can add articles and bid on them.",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
